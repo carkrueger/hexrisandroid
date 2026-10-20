@@ -138,7 +138,9 @@ launch_from_launcher() {
   read -r W H < <(current_size)
   # Start above the dock; a swipe up from the dock may not open the drawer.
   adb shell input swipe $((W / 2)) $((H * 60 / 100)) $((W / 2)) $((H * 10 / 100)) 300
-  sleep 2
+  # Let the drawer finish animating, or the icon position read from the
+  # accessibility tree is stale by the time of the tap.
+  sleep 4
   shot 00-app-drawer
   if ! TAP_SETTLE=0 tap_text "Hexris"; then
     log "launcher icon not found, using am start"
@@ -155,7 +157,16 @@ for i in 1 2 3; do
 done
 sleep 6
 shot 02-start
-foreground_ok || fail "app not in foreground after launch"
+if ! foreground_ok; then
+  # E.g. the launcher tap hit a neighbouring icon. Only fail if the app
+  # doesn't come up when started directly either.
+  log "app not in foreground after the launcher start, using am start"
+  adb shell input keyevent KEYCODE_HOME
+  adb shell am start -n "$ACTIVITY" >/dev/null
+  sleep 6
+  shot 02-start
+  foreground_ok || fail "app not in foreground after launch"
+fi
 read -r W0 H0 < <(current_size)
 log "natural orientation: ${W0}x${H0}"
 # System bar setup, to diagnose edge-to-edge problems from the screenshots.
