@@ -119,8 +119,8 @@ checks it like the CI workflow does, and attaches it to a **draft** GitHub
 release. Review the draft and publish it by hand.
 
 ```bash
-git tag v1.1.0
-git push origin v1.1.0
+git tag v1.2.0
+git push origin v1.2.0
 ```
 
 Signing in the release workflow:
@@ -170,7 +170,7 @@ Before submitting:
 - [ ] The repository needs a `LICENSE` file with an F-Droid-accepted
       free-software license. There is none yet, so F-Droid would reject the
       app. Put the matching SPDX ID in the recipe below.
-- [ ] Release tag `v1.1.0` (or later) exists.
+- [ ] Release tag `v1.2.0` (or later) exists.
 - [ ] Phone and tablet screenshots are committed.
 - [ ] `fdroid scanner` finds nothing (optional local check, e.g. with the
       `registry.gitlab.com/fdroid/docker-executable-fdroidserver` image).
@@ -192,9 +192,9 @@ RepoType: git
 Repo: https://github.com/carkrueger/hexrisandroid.git
 
 Builds:
-  - versionName: 1.1.0
-    versionCode: 1
-    commit: v1.1.0
+  - versionName: 1.2.0
+    versionCode: 2
+    commit: v1.2.0
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@3.41.9
@@ -215,8 +215,8 @@ Builds:
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.1.0
-CurrentVersionCode: 1
+CurrentVersion: 1.2.0
+CurrentVersionCode: 2
 ```
 
 ## Device checklist
