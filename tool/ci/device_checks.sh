@@ -95,6 +95,25 @@ for n in ET.parse(sys.stdin).iter("node"):
   sleep "${TAP_SETTLE:-1.5}"
 }
 
+# Requests display rotation $1 (0-3) and waits up to 12s for the display to
+# follow, or until it is clear an app lock holds it. The emulator sometimes
+# ignores the first user_rotation change, so retry with `wm user-rotation`.
+request_rotation() {
+  local want=$1 i before
+  before=$(current_size)
+  adb shell settings put system user_rotation "$want"
+  for i in 1 2 3 4 5 6; do
+    sleep 2
+    [ "$(current_size)" != "$before" ] && break
+    if [ "$i" = 3 ]; then
+      log "rotation $want not applied yet, retrying with wm user-rotation"
+      adb shell wm user-rotation lock "$want" >/dev/null 2>&1 \
+        || adb shell settings put system user_rotation "$want"
+    fi
+  done
+  sleep 1
+}
+
 is_portrait() {
   local W H
   read -r W H < <(current_size)
@@ -190,8 +209,7 @@ sleep 1
 foreground_ok || { fail "app left after closing help"; adb shell am start -n "$ACTIVITY" >/dev/null; sleep 6; }
 
 log "request rotation by 90 degrees"
-adb shell settings put system user_rotation 1
-sleep 4
+request_rotation 1
 shot 05-rotated
 read -r W1 H1 < <(current_size)
 log "size after rotation request: ${W1}x${H1}"
@@ -208,8 +226,7 @@ fi
 drag_first_piece
 shot 06-rotated-after-move
 
-adb shell settings put system user_rotation 0
-sleep 3
+request_rotation 0
 shot 07-back-to-rotation-0
 
 # Phones with gesture navigation: also look at 3-button navigation, which
