@@ -1,0 +1,32 @@
+== API 36, Physical size: 1080x2400, Physical density: 420
+== install
+== cold start
+== screenshot 00-app-drawer.png
+== tap 'Hexris' at 416 1123
+== screenshot 01-splash-1.png
+== screenshot 01-splash-2.png
+== screenshot 01-splash-3.png
+== screenshot 02-start.png
+== FAIL: app not in foreground after launch
+== natural orientation: 1080x2400
+== tall layout 1080x2400: drag (270,2022) -> (540,1080)
+== screenshot 03-after-move.png
+== back out, kill, relaunch: game should be restored
+== screenshot 04-restored.png
+== help: Settings > How to Play
+== tap 'Settings' at 975 220
+== tap 'How to Play' at 540 1766
+== screenshot 04a-help.png
+== screenshot 04b-help-scrolled.png
+== tap 'Got it' at 828 2148
+== request rotation by 90 degrees
+== rotation 1 not applied yet, retrying with wm user-rotation
+== screenshot 05-rotated.png
+== size after rotation request: 1080x2400
+== tall layout 1080x2400: drag (270,2022) -> (540,1080)
+== screenshot 06-rotated-after-move.png
+== rotation 0 not applied yet, retrying with wm user-rotation
+== screenshot 07-back-to-rotation-0.png
+== switch to 3-button navigation
+== screenshot 08-three-button-navigation.png
+== done, status 1
