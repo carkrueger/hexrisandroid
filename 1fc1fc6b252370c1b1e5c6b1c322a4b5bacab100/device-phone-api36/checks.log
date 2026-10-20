@@ -2,8 +2,7 @@
 == install
 == cold start
 == screenshot 00-app-drawer.png
-== tap 'Hexris': not found
-== launcher icon not found, using am start
+== tap 'Hexris' at 416 1527
 == screenshot 01-splash-1.png
 == screenshot 01-splash-2.png
 == screenshot 01-splash-3.png

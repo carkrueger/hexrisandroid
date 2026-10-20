@@ -7,6 +7,8 @@
 == screenshot 01-splash-2.png
 == screenshot 01-splash-3.png
 == screenshot 02-start.png
+== app not in foreground after the launcher start, using am start
+== screenshot 02-start.png
 == natural orientation: 1080x2400
 == tall layout 1080x2400: drag (270,2022) -> (540,1080)
 == screenshot 03-after-move.png

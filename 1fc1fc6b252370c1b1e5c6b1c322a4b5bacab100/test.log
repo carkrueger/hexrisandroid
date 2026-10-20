@@ -39,33 +39,33 @@ Got dependencies!
 35 packages have newer versions incompatible with dependency constraints.
 Try `flutter pub outdated` for more information.
 
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/drag_preview_test.dart: a rejected drop on the hex board clears the preview
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/drag_preview_test.dart: a rejected drop on the square board clears the preview
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/drag_preview_test.dart: a valid drop places the piece and clears the preview
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/help_dialog_test.dart: explains the goal and both rulesets
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/help_dialog_test.dart: marks the modern ruleset as current
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/help_dialog_test.dart: marks the classic ruleset as current
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/orientation_policy_test.dart: OrientationPolicy.orientationsFor locks phones (shortest side 599) to portrait
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/orientation_policy_test.dart: OrientationPolicy.orientationsFor lets tablets (shortest side 600) rotate freely
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/orientation_policy_test.dart: OrientationPolicy.orientationsFor typical devices
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/orientation_policy_test.dart: OrientationPolicy.apply follows the view size and skips unchanged updates
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/orientation_policy_test.dart: OrientationPolicy.apply waits until the view has a size
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/widget_test.dart: App starts
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/help_dialog_test.dart: explains the goal and both rulesets
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/help_dialog_test.dart: marks the modern ruleset as current
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/help_dialog_test.dart: marks the classic ruleset as current
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: hex mode phone portrait uses the tall layout
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: hex mode tablet portrait uses the tall layout
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: hex mode tablet landscape uses the side panel
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: hex mode short wide window (split-screen) uses the side panel
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/classic_rules_test.dart: Classic square catalog unlocks the recovered 31-entry catalog progressively
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/classic_rules_test.dart: Classic square catalog matches the recovered family weights and orientation counts
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/classic_rules_test.dart: Classic square catalog generator is deterministic with an injected random source
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/classic_rules_test.dart: Classic hex catalog contains one dot and 21 distinct four-cell entries
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/classic_rules_test.dart: Classic scoring and level progression uses distinct cleared cells plus the simultaneous-line bonus
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/classic_rules_test.dart: Classic scoring and level progression matches recovered cumulative level thresholds
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/widget_test.dart: App starts
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: hex mode phone portrait uses the tall layout
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: hex mode tablet portrait uses the tall layout
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: hex mode tablet landscape uses the side panel
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: hex mode short wide window (split-screen) uses the side panel
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/system_ui_test.dart: keeps the system bars transparent after MaterialApp builds
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: square mode phone portrait uses the tall layout
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: square mode tablet portrait uses the tall layout
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: square mode tablet landscape uses the side panel
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: square mode short wide window (split-screen) uses the side panel
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: layout switches when the window is resized
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/system_ui_test.dart: keeps the system bars transparent after MaterialApp builds
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/drag_preview_test.dart: a rejected drop on the hex board clears the preview
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/drag_preview_test.dart: a rejected drop on the square board clears the preview
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/drag_preview_test.dart: a valid drop places the piece and clears the preview
 
 🎉 28 tests passed.
