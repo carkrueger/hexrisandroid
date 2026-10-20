@@ -1,5 +1,6 @@
 First Android release.
 
 * Hex and square boards, modern and Classic rules
+* In-game help explaining the goal and both rulesets
 * Tablet landscape layout with a side panel
 * Adaptive and themed launcher icon

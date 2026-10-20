@@ -110,6 +110,37 @@ it, so back it up.
 - Tag each release `vX.Y.Z` (matching the `x.y.z` in `pubspec.yaml`). F-Droid
   uses `UpdateCheckMode: Tags` to find new versions.
 
+## Releases
+
+Pushing a `vX.Y.Z` tag runs `.github/workflows/release.yml`: it checks that
+the tag matches `pubspec.yaml` and that the changelog for the versionCode
+exists, runs `flutter analyze` and `flutter test`, builds the release APK,
+checks it like the CI workflow does, and attaches it to a **draft** GitHub
+release. Review the draft and publish it by hand.
+
+```bash
+git tag v1.1.0
+git push origin v1.1.0
+```
+
+Signing in the release workflow:
+
+- With these repository secrets set, the APK is signed with your release key
+  (`hexris-X.Y.Z.apk`):
+
+  | Secret | Value |
+  | --- | --- |
+  | `HEXRIS_KEYSTORE_BASE64` | `base64 -w0 hexris-release.jks` |
+  | `HEXRIS_KEYSTORE_PASSWORD` | the keystore password |
+  | `HEXRIS_KEY_ALIAS` | e.g. `hexris` |
+  | `HEXRIS_KEY_PASSWORD` | the key password |
+
+- Without them, the release gets the unsigned APK
+  (`hexris-X.Y.Z-unsigned.apk`, as F-Droid builds it) and a copy signed with
+  a throwaway key (`hexris-X.Y.Z-test-signed.apk`). The test-signed APK
+  installs, but no later release can update it; it must be uninstalled first,
+  which deletes the saved game and high scores.
+
 ## Store metadata
 
 F-Droid reads the listing from `fastlane/metadata/android/en-US/` in this
