@@ -9,7 +9,7 @@ application-label-am:'Hexris'
 application-label-ar:'Hexris'
 
 ## size
--rw-r--r-- 1 runner runner 46046221 Oct 20 20:07 build/app/outputs/flutter-apk/app-release.apk
+-rw-r--r-- 1 runner runner 46046221 Oct 20 20:09 build/app/outputs/flutter-apk/app-release.apk
 
 ## signature (expect: not signed)
 DOES NOT VERIFY

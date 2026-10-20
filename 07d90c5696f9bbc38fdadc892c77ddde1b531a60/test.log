@@ -54,14 +54,14 @@ Try `flutter pub outdated` for more information.
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: hex mode short wide window (split-screen) uses the side panel
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: square mode phone portrait uses the tall layout
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: square mode tablet portrait uses the tall layout
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: square mode tablet landscape uses the side panel
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: square mode short wide window (split-screen) uses the side panel
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/classic_rules_test.dart: Classic square catalog unlocks the recovered 31-entry catalog progressively
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/classic_rules_test.dart: Classic square catalog matches the recovered family weights and orientation counts
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/classic_rules_test.dart: Classic square catalog generator is deterministic with an injected random source
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/classic_rules_test.dart: Classic hex catalog contains one dot and 21 distinct four-cell entries
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: square mode tablet landscape uses the side panel
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/classic_rules_test.dart: Classic scoring and level progression uses distinct cleared cells plus the simultaneous-line bonus
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/classic_rules_test.dart: Classic scoring and level progression matches recovered cumulative level thresholds
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: square mode short wide window (split-screen) uses the side panel
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: layout switches when the window is resized
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/drag_preview_test.dart: a rejected drop on the hex board clears the preview
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/drag_preview_test.dart: a rejected drop on the square board clears the preview

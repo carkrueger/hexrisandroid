@@ -1,6 +1,6 @@
 navigation_mode (0 = 3-button, 2 = gesture): 2
-  Window #8 Window{3bf838b u0 com.hexris.hexris/com.hexris.hexris.MainActivity}:
-    mDisplayId=0 taskId=8 mSession=Session{d2863c6 2879:u0a10216} mClient=android.os.BinderProxy@e3a255a
+  Window #8 Window{786bcb7 u0 com.hexris.hexris/com.hexris.hexris.MainActivity}:
+    mDisplayId=0 taskId=8 mSession=Session{8b4f4bf 3129:u0a10216} mClient=android.os.BinderProxy@61b17b6
     mOwnerUid=10216 showForAllUsers=false package=com.hexris.hexris appop=NONE
     mAttrs={(0,0)(fillxfill) sim={adjust=resize forwardNavigation} layoutInDisplayCutoutMode=always ty=BASE_APPLICATION fmt=TRANSLUCENT wanim=0x1030001
       fl=LAYOUT_IN_SCREEN LAYOUT_INSET_DECOR SPLIT_TOUCH HARDWARE_ACCELERATED DRAWS_SYSTEM_BAR_BACKGROUNDS
@@ -10,9 +10,9 @@ navigation_mode (0 = 3-button, 2 = gesture): 2
       fitSides=
       frameRateBoostOnTouch=true
       dvrrWindowFrameRateHint=true}
-    Requested w=1080 h=2400 mLayoutSeq=95
-    mBaseLayer=21000 mSubLayer=0    mToken=ActivityRecord{112026564 u0 com.hexris.hexris/.MainActivity t8}
-    mActivityRecord=ActivityRecord{112026564 u0 com.hexris.hexris/.MainActivity t8}
+    Requested w=1080 h=2400 mLayoutSeq=102
+    mBaseLayer=21000 mSubLayer=0    mToken=ActivityRecord{207503429 u0 com.hexris.hexris/.MainActivity t8}
+    mActivityRecord=ActivityRecord{207503429 u0 com.hexris.hexris/.MainActivity t8}
     drawnStateEvaluated=true    mightAffectAllDrawn=true
     mViewVisibility=0x0 mHaveFrame=true mObscured=false
     mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
@@ -22,86 +22,86 @@ navigation_mode (0 = 3-button, 2 = gesture): 2
     mHasSurface=true isReadyForDisplay()=true mWindowRemovalAllowed=false
     Frames: parent=[0,0][1080,2400] display=[0,0][1080,2400] frame=[0,0][1080,2400] last=[0,0][1080,2400] insetsChanged=false
      surface=[0,0][0,0]
-    WindowStateAnimator{838915e com.hexris.hexris/com.hexris.hexris.MainActivity}:
-      mSurface=Surface(name=com.hexris.hexris/com.hexris.hexris.MainActivity)/@0x914b93f
+    WindowStateAnimator{402a371 com.hexris.hexris/com.hexris.hexris.MainActivity}:
+      mSurface=Surface(name=com.hexris.hexris/com.hexris.hexris.MainActivity)/@0xd523556
       Surface: shown=true      mDrawState=HAS_DRAWN       mLastHidden=false
       mEnterAnimationPending=false      mSystemDecorRect=[0,0][0,0]
     isOnScreen=true
     isVisible=true
     keepClearAreas: restricted=[], unrestricted=[]
     mPrepareSyncSeqId=0
-  Window #9 Window{cf05fb3 u0 com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity}:
-    mDisplayId=0 taskId=6 mSession=Session{56a87c0 1274:u0a10183} mClient=android.os.BinderProxy@181b922
-    mOwnerUid=10183 showForAllUsers=false package=com.google.android.apps.nexuslauncher appop=NONE
+  Window #9 Window{eaf4bc1 u0 com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity}:
+    mDisplayId=0 taskId=6 mSession=Session{20cf82f 1299:u0a10184} mClient=android.os.BinderProxy@ea3b4a8
+    mOwnerUid=10184 showForAllUsers=false package=com.google.android.apps.nexuslauncher appop=NONE
     mAttrs={(0,0)(fillxfill) sim={adjust=nothing forwardNavigation} layoutInDisplayCutoutMode=always ty=BASE_APPLICATION fmt=TRANSPARENT wanim=0x1030302
       fl=LAYOUT_IN_SCREEN LAYOUT_INSET_DECOR SHOW_WALLPAPER SPLIT_TOUCH HARDWARE_ACCELERATED DRAWS_SYSTEM_BAR_BACKGROUNDS
       pfl=NO_MOVE_ANIMATION OPTIMIZE_MEASURE EDGE_TO_EDGE_ENFORCED FORCE_DRAW_STATUS_BAR_BACKGROUND FIT_INSETS_CONTROLLED
-      vsysui=LAYOUT_STABLE LAYOUT_HIDE_NAVIGATION LAYOUT_FULLSCREEN
+      vsysui=LAYOUT_STABLE LAYOUT_HIDE_NAVIGATION LAYOUT_FULLSCREEN LIGHT_STATUS_BAR LIGHT_NAVIGATION_BAR
+      apr=LIGHT_STATUS_BARS LIGHT_NAVIGATION_BARS
       bhv=DEFAULT
       fitSides=
       frameRateBoostOnTouch=true
       dvrrWindowFrameRateHint=true}
-    Requested w=1080 h=2400 mLayoutSeq=86
-    mBaseLayer=21000 mSubLayer=0    mToken=ActivityRecord{211360482 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t6}
-    mActivityRecord=ActivityRecord{211360482 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t6}
-    drawnStateEvaluated=true    mightAffectAllDrawn=true
+    Requested w=1080 h=2400 mLayoutSeq=92
+    mBaseLayer=21000 mSubLayer=0    mToken=ActivityRecord{126761802 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t6}
+    mActivityRecord=ActivityRecord{126761802 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t6}
 ro.config.low_ram=
 ro.config.avoid_gfx_accel=
 ro.hardware.egl=emulation
 ro.kernel.qemu.gles=
 --- window policy
-      * Task{8c08f92 #8 type=standard I=com.hexris.hexris/.MainActivity U=0 visible=true visibleRequested=true mode=fullscreen translucent=false sz=1}
-      * Task{c9c207f #1 type=home U=0 visible=false visibleRequested=false mode=fullscreen translucent=true sz=1}
-        * Task{2d7e73 #6 type=home I=com.google.android.apps.nexuslauncher/.NexusLauncherActivity U=0 rootTaskId=1 visible=false visibleRequested=false mode=fullscreen translucent=true sz=2}
-      * Task{9f601a4 #3 type=undefined U=0 visible=false visibleRequested=false mode=fullscreen translucent=true sz=2}
-        * Task{8876ac2 #5 type=undefined U=0 rootTaskId=3 visible=false visibleRequested=false mode=multi-window translucent=true sz=0}
-        * Task{b16db0d #4 type=undefined U=0 rootTaskId=3 visible=false visibleRequested=false mode=multi-window translucent=true sz=0}
-    mNavigationBar=Window{1747604 u0 Taskbar}
+      * Task{4984f66 #8 type=standard I=com.hexris.hexris/.MainActivity U=0 visible=true visibleRequested=true mode=fullscreen translucent=false sz=1}
+      * Task{e138ce1 #1 type=home U=0 visible=false visibleRequested=false mode=fullscreen translucent=true sz=1}
+        * Task{5406b31 #6 type=home I=com.google.android.apps.nexuslauncher/.NexusLauncherActivity U=0 rootTaskId=1 visible=false visibleRequested=false mode=fullscreen translucent=true sz=2}
+      * Task{48c8b4c #3 type=undefined U=0 visible=false visibleRequested=false mode=fullscreen translucent=true sz=2}
+        * Task{b10a795 #5 type=undefined U=0 rootTaskId=3 visible=false visibleRequested=false mode=multi-window translucent=true sz=0}
+        * Task{b64f0aa #4 type=undefined U=0 rootTaskId=3 visible=false visibleRequested=false mode=multi-window translucent=true sz=0}
+    mNavigationBar=Window{2c49ac9 u0 Taskbar}
     mNavBarOpacityMode=2
     mNavigationBarCanMove=false
     mHasBottomNavigationBar=true
-    mTopFullscreenOpaqueWindowState=Window{3bf838b u0 com.hexris.hexris/com.hexris.hexris.MainActivity}
-    mNavBarColorWindowCandidate=Window{3bf838b u0 com.hexris.hexris/com.hexris.hexris.MainActivity}
-    mNavBarBackgroundWindowCandidate=Window{3bf838b u0 com.hexris.hexris/com.hexris.hexris.MainActivity}
+    mTopFullscreenOpaqueWindowState=Window{786bcb7 u0 com.hexris.hexris/com.hexris.hexris.MainActivity}
+    mNavBarColorWindowCandidate=Window{786bcb7 u0 com.hexris.hexris/com.hexris.hexris.MainActivity}
+    mNavBarBackgroundWindowCandidate=Window{786bcb7 u0 com.hexris.hexris/com.hexris.hexris.MainActivity}
     mLastStatusBarAppearanceRegions=
       AppearanceRegion{ bounds=[0,0][1080,2400]}
     mForceShowNavigationBarEnabled=false mAllowLockscreenWhenOn=false
-        InsetsSource id=dc1c0001 type=navigationBars frame=[0,2337][1080,2400] visible=true flags=SUPPRESS_SCRIM|ANIMATE_RESIZING sideHint=BOTTOM boundingRects=null
-        InsetsSourceControl: {dc1c0001 mType=navigationBars initiallyVisible mSurfacePosition=Point(0, 2337) mInsetsHint=Insets{left=0, top=0, right=0, bottom=63}}
-        mSource=InsetsSource id=dc1c0001 type=navigationBars frame=[0,2337][1080,2400] visible=true flags=SUPPRESS_SCRIM|ANIMATE_RESIZING sideHint=BOTTOM boundingRects=null
-        mControl=InsetsSourceControl mId=dc1c0001 mType=navigationBars mLeash=Surface(name=Surface(name=1747604 Taskbar)/@0xac7c508 - animation-leash of insets_animation)/@0x30a8e26 mInitiallyVisible=true mSurfacePosition=Point(0, 2337) mInsetsHint=Insets{left=0, top=0, right=0, bottom=63} mSkipAnimationOnce=false mImeStatsToken=null
+        InsetsSource id=4afa0001 type=navigationBars frame=[0,2337][1080,2400] visible=true flags=SUPPRESS_SCRIM|ANIMATE_RESIZING sideHint=BOTTOM boundingRects=null
+        InsetsSourceControl: {4afa0001 mType=navigationBars initiallyVisible mSurfacePosition=Point(0, 2337) mInsetsHint=Insets{left=0, top=0, right=0, bottom=63}}
+        mSource=InsetsSource id=4afa0001 type=navigationBars frame=[0,2337][1080,2400] visible=true flags=SUPPRESS_SCRIM|ANIMATE_RESIZING sideHint=BOTTOM boundingRects=null
+        mControl=InsetsSourceControl mId=4afa0001 mType=navigationBars mLeash=Surface(name=Surface(name=2c49ac9 Taskbar)/@0x83bdfea - animation-leash of insets_animation)/@0xdabe7d2 mInitiallyVisible=true mSurfacePosition=Point(0, 2337) mInsetsHint=Insets{left=0, top=0, right=0, bottom=63} mSkipAnimationOnce=false mImeStatsToken=null
     mAttrs={(0,0)(fillxwrap) gr=BOTTOM CENTER_VERTICAL sim={adjust=pan} layoutInDisplayCutoutMode=always ty=NAVIGATION_BAR_PANEL fmt=TRANSLUCENT
     mAttrs={(0,0)(fillxwrap) gr=TOP CENTER_VERTICAL sim={adjust=pan} layoutInDisplayCutoutMode=always ty=NAVIGATION_BAR_PANEL fmt=TRANSLUCENT
     mAttrs={(0,0)(276x704) sim={adjust=pan} ty=NAVIGATION_BAR_PANEL fmt=TRANSLUCENT
     mAttrs={(0,0)(fillx63) gr=BOTTOM CENTER_VERTICAL sim={adjust=nothing} layoutInDisplayCutoutMode=always ty=NAVIGATION_BAR fmt=TRANSLUCENT receive insets ignoring z-order
-        InsetsFrameProvider: {id=#dc1c0001, index=0, type=navigationBars, source=FRAME, flags=[SUPPRESS_SCRIM], insetsSize=Insets{left=0, top=0, right=0, bottom=63}, insetsSizeOverrides=[TypedInsetsSize: {windowType=INPUT_METHOD, insetsSize=Insets{left=0, top=0, right=0, bottom=63}}, TypedInsetsSize: {windowType=VOICE_INTERACTION, insetsSize=Insets{left=0, top=0, right=0, bottom=63}}]}
+        InsetsFrameProvider: {id=#4afa0001, index=0, type=navigationBars, source=FRAME, flags=[SUPPRESS_SCRIM], insetsSize=Insets{left=0, top=0, right=0, bottom=63}, insetsSizeOverrides=[TypedInsetsSize: {windowType=INPUT_METHOD, insetsSize=Insets{left=0, top=0, right=0, bottom=63}}, TypedInsetsSize: {windowType=VOICE_INTERACTION, insetsSize=Insets{left=0, top=0, right=0, bottom=63}}]}
         ROTATION_0={(0,0)(fillx63) gr=BOTTOM CENTER_VERTICAL sim={adjust=nothing} layoutInDisplayCutoutMode=always ty=NAVIGATION_BAR fmt=TRANSLUCENT receive insets ignoring z-order
-            InsetsFrameProvider: {id=#2fad0001, index=0, type=navigationBars, source=FRAME, flags=[SUPPRESS_SCRIM|ANIMATE_RESIZING], insetsSize=Insets{left=0, top=0, right=0, bottom=63}, insetsSizeOverrides=[TypedInsetsSize: {windowType=INPUT_METHOD, insetsSize=Insets{left=0, top=0, right=0, bottom=63}}, TypedInsetsSize: {windowType=VOICE_INTERACTION, insetsSize=Insets{left=0, top=0, right=0, bottom=63}}]}
+            InsetsFrameProvider: {id=#1710001, index=0, type=navigationBars, source=FRAME, flags=[SUPPRESS_SCRIM|ANIMATE_RESIZING], insetsSize=Insets{left=0, top=0, right=0, bottom=63}, insetsSizeOverrides=[TypedInsetsSize: {windowType=INPUT_METHOD, insetsSize=Insets{left=0, top=0, right=0, bottom=63}}, TypedInsetsSize: {windowType=VOICE_INTERACTION, insetsSize=Insets{left=0, top=0, right=0, bottom=63}}]}
         ROTATION_90={(0,0)(fillx63) gr=BOTTOM CENTER_VERTICAL sim={adjust=nothing} layoutInDisplayCutoutMode=always ty=NAVIGATION_BAR fmt=TRANSLUCENT receive insets ignoring z-order
-            InsetsFrameProvider: {id=#2fad0001, index=0, type=navigationBars, source=FRAME, flags=[SUPPRESS_SCRIM|ANIMATE_RESIZING], insetsSize=Insets{left=0, top=0, right=0, bottom=63}, insetsSizeOverrides=[TypedInsetsSize: {windowType=INPUT_METHOD, insetsSize=Insets{left=0, top=0, right=0, bottom=63}}, TypedInsetsSize: {windowType=VOICE_INTERACTION, insetsSize=Insets{left=0, top=0, right=0, bottom=63}}]}
+            InsetsFrameProvider: {id=#1710001, index=0, type=navigationBars, source=FRAME, flags=[SUPPRESS_SCRIM|ANIMATE_RESIZING], insetsSize=Insets{left=0, top=0, right=0, bottom=63}, insetsSizeOverrides=[TypedInsetsSize: {windowType=INPUT_METHOD, insetsSize=Insets{left=0, top=0, right=0, bottom=63}}, TypedInsetsSize: {windowType=VOICE_INTERACTION, insetsSize=Insets{left=0, top=0, right=0, bottom=63}}]}
         ROTATION_180={(0,0)(fillx63) gr=BOTTOM CENTER_VERTICAL sim={adjust=nothing} layoutInDisplayCutoutMode=always ty=NAVIGATION_BAR fmt=TRANSLUCENT receive insets ignoring z-order
 --- systemui navigation bar
          mAppearance=
          stack #0: AppearanceRegion{ bounds=[0,0][1080,2400]} isLight=false
          mHasLightNavigationBar=false
          mStatusBarMode=0 mNavigationBarMode=0
-           setScrimState() scrimState=UNLOCKED scrimBehindAlpha=0.0 scrimInFrontColor=GradientColors(ffdad9e0, ff475d92) forceForScrim=false scrimColorIsLight=true mHasLightNavigationBar=false mBouncerVisible=false mForceDarkForScrim=false mForceLightForScrim=false timestamp=1792527009319
-           onNavigationBarAppearanceChanged() appearance=0 nbModeChanged=true navigationBarMode=0 navbarColorManagedByIme=false mHasLightNavigationBar=false ignoreScrimForce=false darkForScrim=false lightForScrim=false darkForQs=false darkForTop=false mNavigationLight=false last=true timestamp=1792527003412
+           setScrimState() scrimState=UNLOCKED scrimBehindAlpha=0.0 scrimInFrontColor=GradientColors(ffdad9e0, ff475d92) forceForScrim=false scrimColorIsLight=true mHasLightNavigationBar=false mBouncerVisible=false mForceDarkForScrim=false mForceLightForScrim=false timestamp=1792527146520
+           onNavigationBarAppearanceChanged() appearance=0 nbModeChanged=false navigationBarMode=0 navbarColorManagedByIme=false mHasLightNavigationBar=false ignoreScrimForce=false darkForScrim=false lightForScrim=false darkForQs=false darkForTop=false mNavigationLight=false last=true timestamp=1792527159917
          NavigationBarTransitionsController:
          mAppearance=
          stack #0: AppearanceRegion{ bounds=[0,0][1080,2400]} isLight=false
          mHasLightNavigationBar=false
          mStatusBarMode=0 mNavigationBarMode=0
-           setScrimState() scrimState=UNLOCKED scrimBehindAlpha=0.0 scrimInFrontColor=GradientColors(ffdad9e0, ff475d92) forceForScrim=false scrimColorIsLight=true mHasLightNavigationBar=false mBouncerVisible=false mForceDarkForScrim=false mForceLightForScrim=false timestamp=1792527009319
-           onNavigationBarAppearanceChanged() appearance=0 nbModeChanged=true navigationBarMode=0 navbarColorManagedByIme=false mHasLightNavigationBar=false ignoreScrimForce=false darkForScrim=false lightForScrim=false darkForQs=false darkForTop=false mNavigationLight=false last=true timestamp=1792527003412
+           setScrimState() scrimState=UNLOCKED scrimBehindAlpha=0.0 scrimInFrontColor=GradientColors(ffdad9e0, ff475d92) forceForScrim=false scrimColorIsLight=true mHasLightNavigationBar=false mBouncerVisible=false mForceDarkForScrim=false mForceLightForScrim=false timestamp=1792527146520
+           onNavigationBarAppearanceChanged() appearance=0 nbModeChanged=false navigationBarMode=0 navbarColorManagedByIme=false mHasLightNavigationBar=false ignoreScrimForce=false darkForScrim=false lightForScrim=false darkForQs=false darkForTop=false mNavigationLight=false last=true timestamp=1792527159917
          NavigationBarTransitionsController:
       mNavBarMode=2
      mAppearance=
      stack #0: AppearanceRegion{ bounds=[0,0][1080,2400]} isLight=false
      mHasLightNavigationBar=false
      mStatusBarMode=0 mNavigationBarMode=0
-       setScrimState() scrimState=UNLOCKED scrimBehindAlpha=0.0 scrimInFrontColor=GradientColors(ffdad9e0, ff475d92) forceForScrim=false scrimColorIsLight=true mHasLightNavigationBar=false mBouncerVisible=false mForceDarkForScrim=false mForceLightForScrim=false timestamp=1792527009319
-       onNavigationBarAppearanceChanged() appearance=0 nbModeChanged=true navigationBarMode=0 navbarColorManagedByIme=false mHasLightNavigationBar=false ignoreScrimForce=false darkForScrim=false lightForScrim=false darkForQs=false darkForTop=false mNavigationLight=false last=true timestamp=1792527003412
+       setScrimState() scrimState=UNLOCKED scrimBehindAlpha=0.0 scrimInFrontColor=GradientColors(ffdad9e0, ff475d92) forceForScrim=false scrimColorIsLight=true mHasLightNavigationBar=false mBouncerVisible=false mForceDarkForScrim=false mForceLightForScrim=false timestamp=1792527146520
+       onNavigationBarAppearanceChanged() appearance=0 nbModeChanged=false navigationBarMode=0 navbarColorManagedByIme=false mHasLightNavigationBar=false ignoreScrimForce=false darkForScrim=false lightForScrim=false darkForQs=false darkForTop=false mNavigationLight=false last=true timestamp=1792527159917
      NavigationBarTransitionsController:
       mode=2
         RowAppearanceCoordinator
@@ -109,7 +109,7 @@ ro.kernel.qemu.gles=
         RowAppearanceCoordinator$attach$2
       8: StatusBarModeRepositoryImpl
       mZenMode=0
-    ZenRule[id=3b4d67254bd545ab95f8e9711bf6acd6,state=STATE_FALSE,enabled=FALSE,conditionOverride=OVERRIDE_NONE,name=Bedtime,zenMode=ZEN_MODE_IMPORTANT_INTERRUPTIONS,conditionId=condition://com.google.android.apps.wellbeing.azr/winddown,pkg=com.google.android.apps.wellbeing,component=null,configActivity=ComponentInfo{com.google.android.apps.wellbeing/com.google.android.apps.wellbeing.winddown.ui.WindDownAutomaticZenRuleEntryActivity},creationTime=1792526997921,enabler=null,zenPolicy=ZenPolicy{priorityCategories=[reminders=disallow events=disallow messages=disallow calls=allow repeatCallers=allow alarms=allow media=allow system=disallow convs=disallow ], visualEffects=[fullScreenIntent=disallow lights=disallow peek=disallow statusBar=disallow badge=disallow ambient=disallow notificationList=disallow ], priorityCallsSenders=starred_contacts, priorityMessagesSenders=none, priorityConversationSenders=none, allowChannels=priority},condition=Condition[state=STATE_FALSE,id=condition://com.google.android.apps.wellbeing.azr/winddown,summary=Bedtime,line1=,line2=,icon=-1,source=SOURCE_UNKNOWN,flags=2],deviceEffects=[grayscale, dimWallpaper, nightMode],allowManualInvocation=true,iconResName=null,triggerDescription=From 11:00 PM – 7:00 AM,type=3,disabledOrigin=4,legacySuppressedEffects=0,lastActivation=null]},
+    ZenRule[id=c968f675324d495b8a2ef3192d801e33,state=STATE_FALSE,enabled=FALSE,conditionOverride=OVERRIDE_NONE,name=Bedtime,zenMode=ZEN_MODE_IMPORTANT_INTERRUPTIONS,conditionId=condition://com.google.android.apps.wellbeing.azr/winddown,pkg=com.google.android.apps.wellbeing,component=null,configActivity=ComponentInfo{com.google.android.apps.wellbeing/com.google.android.apps.wellbeing.winddown.ui.WindDownAutomaticZenRuleEntryActivity},creationTime=1792527143549,enabler=null,zenPolicy=ZenPolicy{priorityCategories=[reminders=disallow events=disallow messages=disallow calls=allow repeatCallers=allow alarms=allow media=allow system=disallow convs=disallow ], visualEffects=[fullScreenIntent=disallow lights=disallow peek=disallow statusBar=disallow badge=disallow ambient=disallow notificationList=disallow ], priorityCallsSenders=starred_contacts, priorityMessagesSenders=none, priorityConversationSenders=none, allowChannels=priority},condition=Condition[state=STATE_FALSE,id=condition://com.google.android.apps.wellbeing.azr/winddown,summary=Bedtime,line1=,line2=,icon=-1,source=SOURCE_UNKNOWN,flags=2],deviceEffects=[grayscale, dimWallpaper, nightMode],allowManualInvocation=true,iconResName=null,triggerDescription=From 11:00 PM – 7:00 AM,type=3,disabledOrigin=4,legacySuppressedEffects=0,lastActivation=null]},
     manualRule=ZenRule[id=null,state=STATE_FALSE,enabled=TRUE,conditionOverride=OVERRIDE_NONE,name=null,zenMode=ZEN_MODE_OFF,conditionId=,pkg=android,component=null,configActivity=null,creationTime=0,enabler=null,zenPolicy=ZenPolicy{priorityCategories=[reminders=disallow events=disallow messages=allow calls=allow repeatCallers=allow alarms=allow media=allow system=disallow convs=allow ], visualEffects=[fullScreenIntent=disallow lights=disallow peek=disallow statusBar=allow badge=allow ambient=disallow notificationList=allow ], priorityCallsSenders=starred_contacts, priorityMessagesSenders=starred_contacts, priorityConversationSenders=important, allowChannels=priority},condition=null,deviceEffects=null,allowManualInvocation=true,iconResName=null,triggerDescription=null,type=0,disabledOrigin=0,legacySuppressedEffects=0,lastActivation=null],
       mInTabletMode=-1
     com.android.systemui.navigationbar.NavBarHelper:
@@ -120,4 +120,4 @@ ro.kernel.qemu.gles=
     CRITICAL dump took 0ms -- com.android.systemui.navigationbar.NavigationBarControllerImpl
     com.android.systemui.navigationbar.TaskbarDelegate:
       mNavigationMode=2
-      mEdgeBackPlugin=com.android.systemui.navigationbar.gestural.BackPanelController@1ff9b4b
+      mEdgeBackPlugin=com.android.systemui.navigationbar.gestural.BackPanelController@2a35c3
