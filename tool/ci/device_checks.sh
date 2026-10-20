@@ -144,6 +144,12 @@ log "natural orientation: ${W0}x${H0}"
   echo "navigation_mode (0 = 3-button, 2 = gesture): $(adb shell settings get secure navigation_mode | tr -d '\r')"
   adb shell dumpsys window windows | tr -d '\r' \
     | grep -A45 "Window{.*$PKG/$PKG.MainActivity}:" | head -60
+  # SystemUI only draws a transparent 3-button bar on "high-end graphics"
+  # devices (ActivityManager.isHighEndGfx); software-rendered emulators may
+  # not qualify and fall back to an opaque bar.
+  for p in ro.config.low_ram ro.config.avoid_gfx_accel ro.hardware.egl ro.kernel.qemu.gles; do
+    echo "$p=$(adb shell getprop "$p" | tr -d '\r')"
+  done
   echo "--- window policy"
   adb shell dumpsys window | tr -d '\r' \
     | grep -iE "appearance|navbar|navigationbar|mNavBar|barmode|translucent|opaque" | head -30
@@ -202,6 +208,19 @@ shot 06-rotated-after-move
 adb shell settings put system user_rotation 0
 sleep 3
 shot 07-back-to-rotation-0
+
+# Phones with gesture navigation: also look at 3-button navigation, which
+# draws a bar background (for comparing the system bar across API levels).
+if [ "$FORM" = "phone" ] && [ "$(adb shell settings get secure navigation_mode | tr -d '\r')" = "2" ]; then
+  log "switch to 3-button navigation"
+  adb shell cmd overlay enable-exclusive --category com.android.internal.systemui.navbar.threebutton
+  sleep 4
+  shot 08-three-button-navigation
+  adb shell dumpsys activity service com.android.systemui | tr -d '\r' \
+    | grep -iE "mNavigationBarMode|mMode=|navBarMode" | head -10 >"$OUT/three-button-navigation.txt"
+  adb shell cmd overlay enable-exclusive --category com.android.internal.systemui.navbar.gestural
+  sleep 2
+fi
 foreground_ok || fail "app not in foreground at the end"
 
 adb logcat -d >"$OUT/logcat.txt"
