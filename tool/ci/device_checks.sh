@@ -92,7 +92,7 @@ for n in ET.parse(sys.stdin).iter("node"):
   log "tap '$1' at $xy"
   # shellcheck disable=SC2086
   adb shell input tap $xy
-  sleep 1.5
+  sleep "${TAP_SETTLE:-1.5}"
 }
 
 is_portrait() {
@@ -109,8 +109,25 @@ log "install"
 adb install -r "$APK" >"$OUT/install.txt" 2>&1 || { fail "install"; cat "$OUT/install.txt"; exit 1; }
 adb shell dumpsys package "$PKG" | grep -E 'versionCode|versionName|minSdk|targetSdk' >"$OUT/package.txt"
 
+# Cold start from the launcher like a user would: on Android 12 the system
+# splash screen only shows the app icon for launcher starts, `am start` from
+# the shell gets an empty splash. Falls back to `am start`.
+launch_from_launcher() {
+  adb shell input keyevent KEYCODE_HOME
+  sleep 2
+  local W H
+  read -r W H < <(current_size)
+  adb shell input swipe $((W / 2)) $((H * 85 / 100)) $((W / 2)) $((H * 20 / 100)) 300
+  sleep 2
+  shot 00-app-drawer
+  if ! TAP_SETTLE=0 tap_text "Hexris"; then
+    log "launcher icon not found, using am start"
+    adb shell am start -n "$ACTIVITY" >/dev/null
+  fi
+}
+
 log "cold start"
-adb shell am start -n "$ACTIVITY" >/dev/null
+launch_from_launcher
 # A few frames over the first seconds, to catch the system splash screen.
 for i in 1 2 3; do
   sleep 0.4
@@ -121,6 +138,12 @@ shot 02-start
 foreground_ok || fail "app not in foreground after launch"
 read -r W0 H0 < <(current_size)
 log "natural orientation: ${W0}x${H0}"
+# System bar setup, to diagnose edge-to-edge problems from the screenshots.
+{
+  echo "navigation_mode (0 = 3-button, 2 = gesture): $(adb shell settings get secure navigation_mode | tr -d '\r')"
+  adb shell dumpsys window windows | tr -d '\r' \
+    | grep -A45 "Window{.*$PKG/$PKG.MainActivity}:" | head -60
+} >"$OUT/window.txt" 2>&1
 
 drag_first_piece
 shot 03-after-move

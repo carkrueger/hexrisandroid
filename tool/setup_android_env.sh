@@ -146,7 +146,7 @@ if [ "$HAVE_KVM" -eq 1 ]; then
         --package "$EMULATOR_IMAGE" --device "$device"
     fi
   }
-  create_avd hexris_phone pixel_8
+  create_avd hexris_phone pixel_7
   create_avd hexris_tablet pixel_tablet
   cat <<'EOF'
 

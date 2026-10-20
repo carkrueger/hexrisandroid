@@ -131,7 +131,7 @@ jobs:
             form: phone
           - name: phone-api36
             api: 36
-            profile: pixel_8
+            profile: pixel_7
             form: phone
           - name: tablet-api36
             api: 36
