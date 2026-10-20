@@ -1,0 +1,27 @@
+## aapt2 dump badging
+package: name='com.hexris.hexris' versionCode='1' versionName='1.1.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
+minSdkVersion:'31'
+targetSdkVersion:'36'
+uses-permission: name='com.hexris.hexris.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
+application-label:'Hexris'
+application-label-af:'Hexris'
+application-label-am:'Hexris'
+application-label-ar:'Hexris'
+
+## size
+-rw-r--r-- 1 runner runner 46046217 Oct 20 17:24 build/app/outputs/flutter-apk/app-release.apk
+
+## signature (expect: not signed)
+DOES NOT VERIFY
+ERROR: Missing META-INF/MANIFEST.MF
+
+## dependency metadata blob (expect: none)
+none
+
+## proprietary packages (expect: none)
+none
+
+## permissions
+package: com.hexris.hexris
+permission: com.hexris.hexris.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+uses-permission: name='com.hexris.hexris.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'

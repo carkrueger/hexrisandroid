@@ -1,0 +1,1 @@
+10-20 17:27:33.415   652   746 W WindowManager: Exception thrown during dispatchAppVisibility Window{23a96ab u0 com.hexris.hexris/com.hexris.hexris.MainActivity EXITING}
