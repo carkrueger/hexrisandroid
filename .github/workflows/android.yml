@@ -25,12 +25,12 @@ defaults:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: 17
@@ -104,14 +104,14 @@ jobs:
           zipalign -p -f 4 build/app/outputs/flutter-apk/app-release.apk aligned.apk
           apksigner sign --ks ci.jks --ks-pass pass:android --out app-release-ci-signed.apk aligned.apk
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: apk
           path: |
             build/app/outputs/flutter-apk/app-release.apk
             app-release-ci-signed.apk
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: results-build
@@ -119,7 +119,7 @@ jobs:
 
   emulator:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 40
     strategy:
       fail-fast: false
@@ -138,9 +138,9 @@ jobs:
             profile: pixel_tablet
             form: tablet
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: apk
 
@@ -151,7 +151,28 @@ jobs:
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
 
-      - uses: reactivecircus/android-emulator-runner@v2
+      # The emulator action's own log is only in the Actions UI, so record
+      # what it will work with and fail early, with a readable reason in
+      # results/, if the device profile doesn't exist.
+      - name: Emulator diagnostics
+        env:
+          OUT: results/device-${{ matrix.name }}
+          PROFILE: ${{ matrix.profile }}
+        run: |
+          mkdir -p "$OUT"
+          AVDMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/avdmanager"
+          {
+            echo "ANDROID_HOME=$ANDROID_HOME"
+            grep -h Pkg.Revision "$ANDROID_HOME/cmdline-tools/latest/source.properties" || true
+            ls -l /dev/kvm || true
+          } > "$OUT/emulator-env.txt" 2>&1
+          "$AVDMANAGER" list device -c > "$OUT/device-profiles.txt" 2>&1 || true
+          if ! grep -qx "$PROFILE" "$OUT/device-profiles.txt"; then
+            echo "FAIL: device profile $PROFILE not known to avdmanager" | tee "$OUT/checks.log"
+            exit 1
+          fi
+
+      - uses: reactivecircus/android-emulator-runner@v2.38.0
         with:
           api-level: ${{ matrix.api }}
           target: google_apis
@@ -161,7 +182,7 @@ jobs:
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           script: bash tool/ci/device_checks.sh app-release-ci-signed.apk results/device-${{ matrix.name }} ${{ matrix.form }}
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: results-device-${{ matrix.name }}
@@ -170,11 +191,11 @@ jobs:
   publish-results:
     needs: [build, emulator]
     if: always() && github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           pattern: results-*
           path: downloaded
