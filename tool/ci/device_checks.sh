@@ -143,6 +143,12 @@ log "natural orientation: ${W0}x${H0}"
   echo "navigation_mode (0 = 3-button, 2 = gesture): $(adb shell settings get secure navigation_mode | tr -d '\r')"
   adb shell dumpsys window windows | tr -d '\r' \
     | grep -A45 "Window{.*$PKG/$PKG.MainActivity}:" | head -60
+  echo "--- window policy"
+  adb shell dumpsys window | tr -d '\r' \
+    | grep -iE "appearance|navbar|navigationbar|mNavBar|barmode|translucent|opaque" | head -30
+  echo "--- systemui navigation bar"
+  adb shell dumpsys activity service com.android.systemui | tr -d '\r' \
+    | grep -iE "navigationbar|barmode|transitionmode|mode=|appearance" | head -40
 } >"$OUT/window.txt" 2>&1
 
 drag_first_piece
