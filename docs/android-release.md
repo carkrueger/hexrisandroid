@@ -112,16 +112,19 @@ it, so back it up.
 
 ## Releases
 
-Pushing a `vX.Y.Z` tag runs `.github/workflows/release.yml`: it checks that
-the tag matches `pubspec.yaml` and that the changelog for the versionCode
-exists, runs `flutter analyze` and `flutter test`, builds the release APK,
-checks it like the CI workflow does, and attaches it to a **draft** GitHub
-release. Review the draft and publish it by hand.
+`.github/workflows/release.yml` builds the release APK and attaches it to a
+**draft** GitHub release for the version in `pubspec.yaml`:
 
-```bash
-git tag v1.2.0
-git push origin v1.2.0
-```
+- On every push to `main`, as long as that version has not been published
+  yet. The draft (tag `vX.Y.Z`, pointing at the latest `main` commit) is
+  updated each time, so it always holds the newest build.
+- On a pushed `vX.Y.Z` tag, which must match `pubspec.yaml`.
+
+Each run checks that the changelog for the versionCode exists, runs
+`flutter analyze` and `flutter test`, builds the APK and checks it like the CI
+workflow does. To release, review the draft under *Releases* on GitHub and
+publish it; publishing creates the tag. After that, pushes to `main` build
+nothing until the version in `pubspec.yaml` is bumped for the next release.
 
 Signing in the release workflow:
 
