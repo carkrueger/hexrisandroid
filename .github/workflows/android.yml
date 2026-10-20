@@ -89,7 +89,8 @@ jobs:
             aapt2 dump permissions "$APK"
           } 2>&1 | tee results/apk-check.txt
           aapt2 dump badging "$APK" | grep -q "package: name='com.hexris.hexris'"
-          aapt2 dump badging "$APK" | grep -q "sdkVersion:'31'"
+          # Newer aapt2 prints minSdkVersion:, older ones sdkVersion:.
+          aapt2 dump badging "$APK" | grep -qE "(minSdkVersion|sdkVersion):'31'"
           aapt2 dump badging "$APK" | grep -q "targetSdkVersion:'36'"
           ! unzip -l "$APK" | grep -qiE 'META-INF/.*DEPENDENC'
           ! apkanalyzer dex packages "$APK" | awk '{print $NF}' \

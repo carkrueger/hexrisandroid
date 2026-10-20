@@ -61,7 +61,7 @@ Quick checks on the APK (build-tools on PATH):
 
 ```bash
 aapt2 dump badging build/app/outputs/flutter-apk/app-release.apk | head -5
-# expect: package: name='com.hexris.hexris' ... sdkVersion:'31' targetSdkVersion:'36'
+# expect: package: name='com.hexris.hexris' ... minSdkVersion:'31' targetSdkVersion:'36'
 apkanalyzer dex packages build/app/outputs/flutter-apk/app-release.apk \
   | grep -E 'com\.google\.android\.(gms|play)' && echo "proprietary deps found!"
 unzip -l build/app/outputs/flutter-apk/app-release.apk | grep -i dependencies \
