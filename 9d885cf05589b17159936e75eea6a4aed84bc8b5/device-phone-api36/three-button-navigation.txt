@@ -1,0 +1,10 @@
+         mStatusBarMode=0 mNavigationBarMode=0
+         mStatusBarMode=0 mNavigationBarMode=0
+      mNavBarMode=0
+     mStatusBarMode=0 mNavigationBarMode=0
+      mNavBarMode=0
+       mMode=0
+     mStatusBarMode=0 mNavigationBarMode=0
+      PhoneStatusBarTransitions.BarTransitions.mMode=MODE_TRANSPARENT
+     mStatusBarMode=0 mNavigationBarMode=0
+      #4 task=9 listener=FullscreenTaskListener:TASK_LISTENER_TYPE_FULLSCREEN wmMode=1 pkg=com.hexris.hexris bounds=Rect(0, 0 - 1080, 2400) running=true visible=true focused=true

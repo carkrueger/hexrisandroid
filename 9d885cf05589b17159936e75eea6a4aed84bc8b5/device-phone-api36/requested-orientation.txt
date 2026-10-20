@@ -1,0 +1,3 @@
+      requestedOrientation=SCREEN_ORIENTATION_PORTRAIT
+        requestedOrientation=SCREEN_ORIENTATION_NOSENSOR
+      requestedOrientation=SCREEN_ORIENTATION_UNSPECIFIED

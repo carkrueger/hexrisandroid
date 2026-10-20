@@ -1,0 +1,130 @@
+navigation_mode (0 = 3-button, 2 = gesture): 0
+  Window #6 Window{2de8b7b u0 com.hexris.hexris/com.hexris.hexris.MainActivity}:
+    mDisplayId=0 rootTaskId=13 mSession=Session{15b72ac 3019:u0a10145} mClient=android.os.BinderProxy@e31970a
+    mOwnerUid=10145 showForAllUsers=false package=com.hexris.hexris appop=NONE
+    mAttrs={(0,0)(fillxfill) sim={adjust=resize forwardNavigation} layoutInDisplayCutoutMode=shortEdges ty=BASE_APPLICATION fmt=TRANSLUCENT wanim=0x1030001
+      fl=LAYOUT_IN_SCREEN LAYOUT_INSET_DECOR SPLIT_TOUCH HARDWARE_ACCELERATED DRAWS_SYSTEM_BAR_BACKGROUNDS
+      pfl=NO_MOVE_ANIMATION FORCE_DRAW_STATUS_BAR_BACKGROUND USE_BLAST FIT_INSETS_CONTROLLED
+      vsysui=LAYOUT_STABLE LAYOUT_HIDE_NAVIGATION LAYOUT_FULLSCREEN
+      bhv=DEFAULT
+      fitSides=}
+    Requested w=1080 h=2400 mLayoutSeq=99
+    mBaseLayer=21000 mSubLayer=0    mToken=ActivityRecord{89b26d9 u0 com.hexris.hexris/.MainActivity t13}
+    mActivityRecord=ActivityRecord{89b26d9 u0 com.hexris.hexris/.MainActivity t13}
+    mAppDied=false    drawnStateEvaluated=true    mightAffectAllDrawn=true
+    mViewVisibility=0x0 mHaveFrame=true mObscured=false
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h842dp 420dpi nrml long port finger qwerty/v/v -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2274) mMaxBounds=Rect(0, 0 - 1080, 2400) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1 fontWeightAdjustment=0}
+    mLastReportedConfiguration={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h842dp 420dpi nrml long port finger qwerty/v/v -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2274) mMaxBounds=Rect(0, 0 - 1080, 2400) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.1 fontWeightAdjustment=0}
+    mHasSurface=true isReadyForDisplay()=true mWindowRemovalAllowed=false
+    Frames: containing=[0,0][1080,2400] parent=[0,0][1080,2400] display=[0,0][1080,2400]
+    mFrame=[0,0][1080,2400] last=[0,0][1080,2400]
+     surface=[0,0][0,0]
+    WindowStateAnimator{d3afcaa com.hexris.hexris/com.hexris.hexris.MainActivity}:
+      mSurface=Surface(name=com.hexris.hexris/com.hexris.hexris.MainActivity)/@0x95909b
+      Surface: shown=true layer=0 alpha=1.0 rect=(0.0,0.0)  transform=(1.0, 0.0, 0.0, 1.0)
+      mDrawState=HAS_DRAWN       mLastHidden=false
+      mEnterAnimationPending=false      mSystemDecorRect=[0,0][0,0]
+    mForceSeamlesslyRotate=false seamlesslyRotate: pending=null finishedFrameNumber=0
+    isOnScreen=true
+    isVisible=true
+  Window #7 Window{9fba495 u0 com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity}:
+    mDisplayId=0 rootTaskId=1 mSession=Session{5056d43 1800:u0a10101} mClient=android.os.BinderProxy@2815c4c
+    mOwnerUid=10101 showForAllUsers=false package=com.google.android.apps.nexuslauncher appop=NONE
+    mAttrs={(0,0)(fillxfill) gr=LEFT CENTER_HORIZONTAL sim={adjust=pan} layoutInDisplayCutoutMode=always ty=DRAWN_APPLICATION fmt=TRANSPARENT wanim=0x10302f2 alpha=0.0
+      fl=NOT_FOCUSABLE NOT_TOUCHABLE LAYOUT_IN_SCREEN LAYOUT_INSET_DECOR WATCH_OUTSIDE_TOUCH SPLIT_TOUCH HARDWARE_ACCELERATED DRAWS_SYSTEM_BAR_BACKGROUNDS
+      pfl=NO_MOVE_ANIMATION FORCE_DRAW_STATUS_BAR_BACKGROUND USE_BLAST APPEARANCE_CONTROLLED FIT_INSETS_CONTROLLED
+      vsysui=LIGHT_STATUS_BAR LIGHT_NAVIGATION_BAR
+      bhv=DEFAULT
+      fitSides=}
+    Requested w=1080 h=2400 mLayoutSeq=83
+    mBaseLayer=21000 mSubLayer=0    mToken=ActivityRecord{cd66044 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t11}
+    mActivityRecord=ActivityRecord{cd66044 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t11}
+    mAppDied=false    drawnStateEvaluated=true    mightAffectAllDrawn=true
+    mViewVisibility=0x8 mHaveFrame=true mObscured=false
+    mGivenContentInsets=[0,0][0,0] mGivenVisibleInsets=[0,0][0,0]
+    mFullConfiguration={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h842dp 420dpi nrml long port finger qwerty/v/v -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2274) mMaxBounds=Rect(0, 0 - 1080, 2400) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=home mAlwaysOnTop=undefined mRotation=ROTATION_0} s.2 fontWeightAdjustment=0}
+    mLastReportedConfiguration={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h842dp 420dpi nrml long port finger qwerty/v/v -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2274) mMaxBounds=Rect(0, 0 - 1080, 2400) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=home mAlwaysOnTop=undefined mRotation=ROTATION_0} s.2 fontWeightAdjustment=0}
+ro.config.low_ram=
+ro.config.avoid_gfx_accel=
+ro.hardware.egl=emulation
+ro.kernel.qemu.gles=
+--- view hierarchy (is the Flutter view laid out behind the bars?)
+      DecorView@bf64d3a[NexusLauncherActivity]
+          android.widget.FrameLayout{5a82235 V.E...... ......ID 0,0-1080,2400 #1020002 android:id/content}
+      DecorView@86edf7[MainActivity]
+          android.widget.FrameLayout{ec6cb82 V.E...... ........ 0,0-1080,2400 #1020002 android:id/content}
+        android.view.View{57f82c9 I.ED..... ......ID 0,0-1080,63 #102002f android:id/statusBarBackground}
+        android.view.View{19a1dce I.ED..... ......ID 0,2274-1080,2400 #1020030 android:id/navigationBarBackground}
+--- window policy
+      Window #8: WindowStateAnimator{b8a55dd NavigationBar0}
+      mPreferredTopFocusableRootTask=Task{a738431 #13 type=standard I=com.hexris.hexris/.MainActivity U=0 visible=true mode=fullscreen translucent=false sz=1}
+      mLastFocusedRootTask=Task{a738431 #13 type=standard I=com.hexris.hexris/.MainActivity U=0 visible=true mode=fullscreen translucent=false sz=1}
+      * Task{a738431 #13 type=standard I=com.hexris.hexris/.MainActivity U=0 visible=true mode=fullscreen translucent=false sz=1}
+      * Task{16f9b5 #1 type=home ?? U=0 visible=false mode=fullscreen translucent=true sz=1}
+        * Task{eb9d898 #11 type=home I=com.google.android.apps.nexuslauncher/.NexusLauncherActivity U=0 rootTaskId=1 visible=false mode=fullscreen translucent=true sz=1}
+      * Task{44de01a #2 type=undefined ?? U=0 visible=false mode=split-screen-primary translucent=true sz=0}
+      * Task{ab2eec5 #3 type=undefined ?? U=0 visible=false mode=split-screen-secondary translucent=true sz=0}
+      * Task{d8c874b #4 type=undefined ?? U=0 visible=false mode=fullscreen translucent=true sz=0}
+      * Task{510a528 #5 type=undefined ?? U=0 visible=false mode=multi-window translucent=true sz=0}
+      * Task{f58b241 #6 type=undefined ?? U=0 visible=false mode=multi-window translucent=true sz=0}
+    mNavigationBar=Window{e387ea7 u0 NavigationBar0}
+    mNavBarOpacityMode=0
+    mNavigationBarCanMove=true
+    mNavigationBarPosition=4
+    mTopFullscreenOpaqueWindowState=Window{2de8b7b u0 com.hexris.hexris/com.hexris.hexris.MainActivity}
+    mTopFullscreenOpaqueOrDimmingWindowState=Window{2de8b7b u0 com.hexris.hexris/com.hexris.hexris.MainActivity}
+        mWin=Window{e387ea7 u0 NavigationBar0}
+        mWin=Window{e387ea7 u0 NavigationBar0}
+        mWin=Window{e387ea7 u0 NavigationBar0}
+        mWin=Window{e387ea7 u0 NavigationBar0}
+        mControl=InsetsSourceControl type=ITYPE_NAVIGATION_BAR mLeash=Surface(name=Surface(name=e387ea7 NavigationBar0)/@0x3f4614d - animation-leash of insets_animation)/@0xa1b8732 mSurfacePosition=Point(0, 2274) mInsetsHint=Insets{left=0, top=0, right=0, bottom=126} mSkipAnimationOnce=false
+        mWin=Window{e387ea7 u0 NavigationBar0}
+        mAdapter=ControlAdapter mCapturedLeash=Surface(name=Surface(name=e387ea7 NavigationBar0)/@0x3f4614d - animation-leash of insets_animation)/@0xa1b8732
+    mAttrs={(0,1744)(fillx656) sim={adjust=pan} layoutInDisplayCutoutMode=always ty=NAVIGATION_BAR_PANEL fmt=TRANSLUCENT
+  Window #1 Window{e387ea7 u0 NavigationBar0}:
+    mAttrs={(0,0)(fillxfill) sim={adjust=pan} layoutInDisplayCutoutMode=always ty=NAVIGATION_BAR fmt=TRANSLUCENT
+      mLeash=Surface(name=Surface(name=e387ea7 NavigationBar0)/@0x3f4614d - animation-leash of insets_animation)/@0xa1b8732 mAnimationType=insets_animation
+        ControlAdapter mCapturedLeash=Surface(name=Surface(name=e387ea7 NavigationBar0)/@0x3f4614d - animation-leash of insets_animation)/@0xa1b8732
+    WindowStateAnimator{b8a55dd NavigationBar0}:
+--- systemui navigation bar
+        mConfiguration={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h842dp 420dpi nrml long port finger qwerty/v/v -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2274) mMaxBounds=Rect(0, 0 - 1080, 2400) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.10 fontWeightAdjustment=0}
+       mMode=0
+      mNavBarMode=0
+      isInDemoMode=false
+        mIsAmbientMode=false
+          mInTouchMode=true
+     mAppearance=
+     stack #0: AppearanceRegion{ bounds=[0,0][1080,2400]} isLight=false
+     mNavigationLight=false mHasLightNavigationBar=false
+     mStatusBarMode=0 mNavigationBarMode=0
+     NavigationBarTransitionsController:
+            com.android.systemui.navigationbar.NavigationBar$8@2e05869
+            com.android.systemui.navigationbar.NavigationBar$8@2e05869
+            com.android.systemui.navigationbar.NavigationBar$8@2e05869
+      mAirplaneMode=false
+      Current State: connected=true,enabled=true,level=4,inetCondition=1,iconGroup=IconGroup(3G),activityIn=false,activityOut=true,rssi=0,lastModified=10-20 20:41:19.110,dataSim=true,networkName=T-Mobile,networkNameData=T-Mobile,dataConnected=true,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous State(1): connected=true,enabled=true,level=4,inetCondition=1,iconGroup=IconGroup(3G),activityIn=false,activityOut=false,rssi=0,lastModified=10-20 20:41:13.819,dataSim=true,networkName=T-Mobile,networkNameData=T-Mobile,dataConnected=true,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous State(2): connected=true,enabled=true,level=4,inetCondition=1,iconGroup=IconGroup(3G),activityIn=true,activityOut=true,rssi=0,lastModified=10-20 20:41:12.816,dataSim=true,networkName=T-Mobile,networkNameData=T-Mobile,dataConnected=true,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous State(3): connected=true,enabled=true,level=4,inetCondition=1,iconGroup=IconGroup(3G),activityIn=false,activityOut=false,rssi=0,lastModified=10-20 20:41:05.751,dataSim=true,networkName=T-Mobile,networkNameData=T-Mobile,dataConnected=true,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous State(4): connected=true,enabled=true,level=4,inetCondition=1,iconGroup=IconGroup(3G),activityIn=true,activityOut=true,rssi=0,lastModified=10-20 20:41:04.756,dataSim=true,networkName=T-Mobile,networkNameData=T-Mobile,dataConnected=true,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous State(5): connected=true,enabled=true,level=4,inetCondition=1,iconGroup=IconGroup(3G),activityIn=false,activityOut=false,rssi=0,lastModified=10-20 20:41:00.804,dataSim=true,networkName=T-Mobile,networkNameData=T-Mobile,dataConnected=true,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous State(6): connected=true,enabled=true,level=4,inetCondition=1,iconGroup=IconGroup(LTE),activityIn=false,activityOut=false,rssi=0,lastModified=10-20 20:40:56.252,dataSim=true,networkName=T-Mobile,networkNameData=T-Mobile,dataConnected=true,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous State(7): connected=true,enabled=true,level=4,inetCondition=1,iconGroup=IconGroup(LTE),activityIn=false,activityOut=false,rssi=0,lastModified=10-20 20:40:44.749,dataSim=true,networkName=T-Mobile,networkNameData=T-Mobile,dataConnected=false,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous State(8): connected=true,enabled=true,level=0,inetCondition=1,iconGroup=IconGroup(LTE),activityIn=false,activityOut=false,rssi=0,lastModified=10-20 20:40:44.690,dataSim=true,networkName=T-Mobile,networkNameData=T-Mobile,dataConnected=false,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous State(9): connected=true,enabled=true,level=0,inetCondition=1,iconGroup=IconGroup(Unknown),activityIn=false,activityOut=false,rssi=0,lastModified=10-20 20:40:44.287,dataSim=true,networkName=T-Mobile,networkNameData=T-Mobile,dataConnected=false,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous State(10): connected=false,enabled=true,level=0,inetCondition=1,iconGroup=IconGroup(Unknown),activityIn=false,activityOut=false,rssi=0,lastModified=10-20 20:40:44.224,dataSim=true,networkName=T-Mobile,networkNameData=T-Mobile,dataConnected=false,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous State(11): connected=false,enabled=true,level=0,inetCondition=1,iconGroup=IconGroup(Unknown),activityIn=false,activityOut=false,rssi=0,lastModified=10-20 20:40:44.140,dataSim=true,networkName=,networkNameData=,dataConnected=false,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous State(12): connected=false,enabled=true,level=0,inetCondition=1,iconGroup=IconGroup(Unknown),activityIn=false,activityOut=false,rssi=0,lastModified=10-20 20:40:44.025,dataSim=false,networkName=,networkNameData=,dataConnected=false,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous State(13): connected=false,enabled=true,level=0,inetCondition=1,iconGroup=IconGroup(G),activityIn=false,activityOut=false,rssi=0,lastModified=10-20 20:40:43.937,dataSim=false,networkName=,networkNameData=,dataConnected=false,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous State(14): connected=false,enabled=true,level=0,inetCondition=0,iconGroup=IconGroup(G),activityIn=false,activityOut=false,rssi=0,lastModified=10-20 20:40:43.769,dataSim=false,networkName=,networkNameData=,dataConnected=false,roaming=false,isDefault=false,isEmergency=false,airplaneMode=false,carrierNetworkChangeMode=false,userSetup=true,defaultDataOff=false
+      Previous MobileStatus(1): 10-20 20:41:19.110,[activityIn=false,activityOut=true,dataSim=true,carrierNetworkChangeMode=false,dataState=2,serviceState=mVoiceRegState=0(IN_SERVICE), mDataRegState=0(IN_SERVICE),signalStrength=4,telephonyDisplayInfo=TelephonyDisplayInfo {network=HSPA, override=NONE}]
+      Previous MobileStatus(2): 10-20 20:41:13.819,[activityIn=false,activityOut=false,dataSim=true,carrierNetworkChangeMode=false,dataState=2,serviceState=mVoiceRegState=0(IN_SERVICE), mDataRegState=0(IN_SERVICE),signalStrength=4,telephonyDisplayInfo=TelephonyDisplayInfo {network=HSPA, override=NONE}]
+      Previous MobileStatus(3): 10-20 20:41:12.816,[activityIn=true,activityOut=true,dataSim=true,carrierNetworkChangeMode=false,dataState=2,serviceState=mVoiceRegState=0(IN_SERVICE), mDataRegState=0(IN_SERVICE),signalStrength=4,telephonyDisplayInfo=TelephonyDisplayInfo {network=HSPA, override=NONE}]
+      Previous MobileStatus(4): 10-20 20:41:05.751,[activityIn=false,activityOut=false,dataSim=true,carrierNetworkChangeMode=false,dataState=2,serviceState=mVoiceRegState=0(IN_SERVICE), mDataRegState=0(IN_SERVICE),signalStrength=4,telephonyDisplayInfo=TelephonyDisplayInfo {network=HSPA, override=NONE}]
+      Previous MobileStatus(5): 10-20 20:41:04.748,[activityIn=true,activityOut=true,dataSim=true,carrierNetworkChangeMode=false,dataState=2,serviceState=mVoiceRegState=0(IN_SERVICE), mDataRegState=0(IN_SERVICE),signalStrength=4,telephonyDisplayInfo=TelephonyDisplayInfo {network=HSPA, override=NONE}]
+      Previous MobileStatus(6): 10-20 20:41:00.803,[activityIn=false,activityOut=false,dataSim=true,carrierNetworkChangeMode=false,dataState=2,serviceState=mVoiceRegState=0(IN_SERVICE), mDataRegState=0(IN_SERVICE),signalStrength=4,telephonyDisplayInfo=TelephonyDisplayInfo {network=HSPA, override=NONE}]
+      Previous MobileStatus(7): 10-20 20:40:56.252,[activityIn=false,activityOut=false,dataSim=true,carrierNetworkChangeMode=false,dataState=2,serviceState=mVoiceRegState=0(IN_SERVICE), mDataRegState=0(IN_SERVICE),signalStrength=4,telephonyDisplayInfo=TelephonyDisplayInfo {network=LTE, override=NONE}]
+      Previous MobileStatus(8): 10-20 20:40:56.247,[activityIn=false,activityOut=false,dataSim=true,carrierNetworkChangeMode=false,dataState=1,serviceState=mVoiceRegState=0(IN_SERVICE), mDataRegState=0(IN_SERVICE),signalStrength=4,telephonyDisplayInfo=TelephonyDisplayInfo {network=LTE, override=NONE}]
+      Previous MobileStatus(9): 10-20 20:40:44.690,[activityIn=false,activityOut=false,dataSim=true,carrierNetworkChangeMode=false,dataState=0,serviceState=mVoiceRegState=0(IN_SERVICE), mDataRegState=0(IN_SERVICE),signalStrength=4,telephonyDisplayInfo=TelephonyDisplayInfo {network=LTE, override=NONE}]
+      Previous MobileStatus(10): 10-20 20:40:44.690,[activityIn=false,activityOut=false,dataSim=true,carrierNetworkChangeMode=false,dataState=0,serviceState=mVoiceRegState=0(IN_SERVICE), mDataRegState=0(IN_SERVICE),signalStrength=0,telephonyDisplayInfo=TelephonyDisplayInfo {network=LTE, override=NONE}]
