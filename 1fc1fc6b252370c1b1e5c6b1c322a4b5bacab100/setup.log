@@ -1,0 +1,178 @@
+
+[1;34m==> JDK 17 already installed[0m
+
+[1;34m==> Cloning Flutter 3.41.9 into /home/runner/flutter[0m
+Cloning into '/home/runner/flutter'...
+Note: switching to '00b0c91f06209d9e4a41f71b7a512d6eb3b9c694'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Updating files:  82% (12656/15361)Updating files:  83% (12750/15361)Updating files:  84% (12904/15361)Updating files:  85% (13057/15361)Updating files:  86% (13211/15361)Updating files:  87% (13365/15361)Updating files:  88% (13518/15361)Updating files:  89% (13672/15361)Updating files:  90% (13825/15361)Updating files:  91% (13979/15361)Updating files:  92% (14133/15361)Updating files:  93% (14286/15361)Updating files:  94% (14440/15361)Updating files:  95% (14593/15361)Updating files:  96% (14747/15361)Updating files:  97% (14901/15361)Updating files:  98% (15054/15361)Updating files:  99% (15208/15361)Updating files: 100% (15361/15361)Updating files: 100% (15361/15361), done.
+
+[1;34m==> Android cmdline-tools already installed[0m
+
+[1;34m==> Accepting Android SDK licenses[0m
+yes: standard output: Broken pipe
+
+[1;34m==> SKIP_EMULATOR=1: skipping emulator[0m
+
+[1;34m==> Installing SDK packages: ndk;28.2.13676358[0m
+Loading package information...                                                  Loading local repository...                                                     [                                       ] 3% Loading local repository...        [                                       ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 5% Fetch remote repository...         [==                                     ] 5% Fetch remote repository...         [==                                     ] 6% Fetch remote repository...         [==                                     ] 7% Fetch remote repository...         [==                                     ] 7% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 10% Computing updates...              [===                                    ] 10% Installing NDK (Side by side) 28.2[===                                    ] 10% Downloading android-ndk-r28c-linux[====                                   ] 10% Downloading android-ndk-r28c-linux[====                                   ] 11% Downloading android-ndk-r28c-linux[====                                   ] 12% Downloading android-ndk-r28c-linux[=====                                  ] 13% Downloading android-ndk-r28c-linux[=====                                  ] 14% Downloading android-ndk-r28c-linux[=====                                  ] 15% Downloading android-ndk-r28c-linux[======                                 ] 15% Downloading android-ndk-r28c-linux[======                                 ] 16% Downloading android-ndk-r28c-linux[======                                 ] 17% Downloading android-ndk-r28c-linux[=======                                ] 18% Downloading android-ndk-r28c-linux[=======                                ] 19% Downloading android-ndk-r28c-linux[=======                                ] 20% Downloading android-ndk-r28c-linux[========                               ] 20% Downloading android-ndk-r28c-linux[========                               ] 21% Downloading android-ndk-r28c-linux[========                               ] 22% Downloading android-ndk-r28c-linux[=========                              ] 23% Downloading android-ndk-r28c-linux[=========                              ] 24% Downloading android-ndk-r28c-linux[=========                              ] 25% Downloading android-ndk-r28c-linux[==========                             ] 25% Downloading android-ndk-r28c-linux[==========                             ] 26% Downloading android-ndk-r28c-linux[==========                             ] 27% Downloading android-ndk-r28c-linux[===========                            ] 28% Downloading android-ndk-r28c-linux[===========                            ] 29% Downloading android-ndk-r28c-linux[===========                            ] 30% Downloading android-ndk-r28c-linux[============                           ] 30% Downloading android-ndk-r28c-linux[============                           ] 31% Downloading android-ndk-r28c-linux[============                           ] 32% Downloading android-ndk-r28c-linux[============                           ] 33% Downloading android-ndk-r28c-linux[============                           ] 33% Unzipping...                      [============                           ] 33% Unzipping... android-ndk-r28c/    [============                           ] 33% Unzipping... android-ndk-r28c/READ[=============                          ] 33% Unzipping... android-ndk-r28c/READ[=============                          ] 33% Unzipping... android-ndk-r28c/meta[=============                          ] 33% Unzipping... android-ndk-r28c/shad[=============                          ] 33% Unzipping... android-ndk-r28c/ndk-[=============                          ] 33% Unzipping... android-ndk-r28c/wrap[=============                          ] 33% Unzipping... android-ndk-r28c/ndk-[=============                          ] 33% Unzipping... android-ndk-r28c/tool[=============                          ] 34% Unzipping... android-ndk-r28c/tool[=============                          ] 35% Unzipping... android-ndk-r28c/tool[==============                         ] 35% Unzipping... android-ndk-r28c/tool[==============                         ] 36% Unzipping... android-ndk-r28c/tool[==============                         ] 37% Unzipping... android-ndk-r28c/tool[===============                        ] 38% Unzipping... android-ndk-r28c/tool[===============                        ] 39% Unzipping... android-ndk-r28c/tool[===============                        ] 40% Unzipping... android-ndk-r28c/tool[================                       ] 40% Unzipping... android-ndk-r28c/tool[================                       ] 41% Unzipping... android-ndk-r28c/tool[================                       ] 42% Unzipping... android-ndk-r28c/tool[=================                      ] 43% Unzipping... android-ndk-r28c/tool[=================                      ] 44% Unzipping... android-ndk-r28c/tool[=================                      ] 45% Unzipping... android-ndk-r28c/tool[==================                     ] 45% Unzipping... android-ndk-r28c/tool[==================                     ] 46% Unzipping... android-ndk-r28c/tool[==================                     ] 47% Unzipping... android-ndk-r28c/tool[===================                    ] 48% Unzipping... android-ndk-r28c/tool[===================                    ] 49% Unzipping... android-ndk-r28c/tool[===================                    ] 50% Unzipping... android-ndk-r28c/tool[====================                   ] 50% Unzipping... android-ndk-r28c/tool[====================                   ] 51% Unzipping... android-ndk-r28c/tool[====================                   ] 52% Unzipping... android-ndk-r28c/tool[=====================                  ] 53% Unzipping... android-ndk-r28c/tool[=====================                  ] 54% Unzipping... android-ndk-r28c/tool[=====================                  ] 54% Unzipping... android-ndk-r28c/buil[=====================                  ] 54% Unzipping... android-ndk-r28c/sour[=====================                  ] 54% Unzipping... android-ndk-r28c/NOTI[=====================                  ] 54% Unzipping... android-ndk-r28c/ndk-[=====================                  ] 54% Unzipping... android-ndk-r28c/NOTI[=====================                  ] 54% Unzipping... android-ndk-r28c/pyth[=====================                  ] 54% Unzipping... android-ndk-r28c/preb[=====================                  ] 54% Unzipping... android-ndk-r28c/ndk-[=====================                  ] 54% Unzipping... android-ndk-r28c/sour[=====================                  ] 54% Unzipping... android-ndk-r28c/simp[=====================                  ] 55% Unzipping... android-ndk-r28c/simp[=====================                  ] 55% Unzipping... android-ndk-r28c/CHAN[=======================================] 100% Unzipping... android-ndk-r28c/CHA
+
+
+[1;34m==> Configuring Flutter[0m
+Downloading Linux x64 Dart SDK from Flutter engine 42d3d75a56efe1a2e9902f52dc8006099c45d937...
+Building flutter tool...
+Resolving dependencies...
+Downloading packages...
++ _fe_analyzer_shared 92.0.0 (109.0.0 available)
++ analyzer 9.0.0 (14.5.0 available)
++ archive 3.6.1 (4.5.2 available)
++ args 2.7.0
++ async 2.13.0 (2.13.1 available)
++ boolean_selector 2.1.2
++ browser_launcher 1.1.3 (1.2.0 available)
++ built_collection 5.1.1 (5.1.2 available)
++ built_value 8.12.1 (8.13.0 available)
++ checked_yaml 2.0.4
++ cli_config 0.2.0
++ clock 1.1.2 (1.1.3 available)
++ code_assets 1.0.0 (2.1.0 available)
++ code_builder 4.11.1 (4.13.0 available)
++ collection 1.19.1
++ completion 1.0.2
++ convert 3.1.2
++ coverage 1.15.0 (1.16.0 available)
++ crypto 3.0.7
++ csslib 1.0.2
++ dap 1.4.0
++ dart_service_protocol_shared 0.0.3
++ dart_style 3.1.3 (3.1.14 available)
++ data_assets 0.19.6 (0.20.0 available)
++ dds 5.1.0 (5.4.0 available)
++ dds_service_extensions 2.1.0
++ devtools_shared 12.0.0 (14.0.0 available)
++ dtd 4.0.0
++ dwds 26.2.3 (27.2.0 available)
++ extension_discovery 2.1.0
++ fake_async 1.3.3
++ ffi 2.1.4 (2.2.0 available)
++ file 7.0.1
++ file_testing 3.0.2 (3.1.0 available)
++ fixnum 1.1.1
++ flutter_template_images 5.0.0 (5.0.1 available)
++ frontend_server_client 4.0.0 (4.1.0 available)
++ glob 2.1.3 (2.2.0 available)
++ graphs 2.3.2
++ hooks 1.0.0 (2.2.0 available)
++ hooks_runner 1.0.1 (1.6.4 available)
++ html 0.15.6 (0.15.7 available)
++ http 1.6.0
++ http_multi_server 3.2.2
++ http_parser 4.1.2
++ intl 0.20.2 (0.20.3 available)
++ io 1.0.5 (1.1.0 available)
++ js 0.7.2 (discontinued)
++ json_annotation 4.9.0 (4.12.0 available)
++ json_rpc_2 4.0.0 (4.1.0 available)
++ logging 1.3.0
++ matcher 0.12.19 (0.12.20 available)
++ meta 1.17.0 (1.19.0 available)
++ mime 2.0.0 (2.1.0 available)
++ multicast_dns 0.3.3 (0.3.3+1 available)
++ mustache_template 2.0.2 (2.0.6 available)
++ native_stack_traces 0.6.1 (0.7.0 available)
++ node_preamble 2.0.2
++ package_config 2.2.0 (3.0.0 available)
++ path 1.9.1
++ petitparser 7.0.1 (7.1.0 available)
++ platform 3.1.6 (3.2.0 available)
++ pool 1.5.2 (1.5.3 available)
++ process 5.0.5 (5.0.6 available)
++ pub_semver 2.2.0 (2.2.1 available)
++ pubspec_parse 1.5.0 (1.6.0 available)
++ shelf 1.4.2 (1.4.3 available)
++ shelf_packages_handler 3.0.2
++ shelf_proxy 1.0.4 (1.0.5 available)
++ shelf_static 1.1.3 (1.2.0 available)
++ shelf_web_socket 3.0.0
++ source_map_stack_trace 2.1.2
++ source_maps 0.10.13 (0.10.14 available)
++ source_span 1.10.1 (1.10.2 available)
++ sprintf 7.0.0
++ sse 4.1.8 (4.2.0 available)
++ stack_trace 1.12.1 (1.12.2 available)
++ standard_message_codec 0.0.1+4 (0.0.1+5 available)
++ stream_channel 2.1.4
++ string_scanner 1.4.1
++ sync_http 0.3.1
++ term_glyph 1.2.2
++ test 1.30.0 (1.33.0 available)
++ test_api 0.7.10 (0.7.15 available)
++ test_core 0.6.16 (0.6.21 available)
++ typed_data 1.4.0
++ unified_analytics 8.0.10 (8.2.0 available)
++ usage 4.1.1 (discontinued)
++ uuid 4.5.2 (4.6.0 available)
++ vm_service 15.0.2 (15.4.0 available)
++ vm_service_interface 2.0.1
++ vm_snapshot_analysis 0.7.6
++ watcher 1.2.0 (1.2.1 available)
++ web 1.1.1
++ web_socket 1.0.1
++ web_socket_channel 3.0.3
++ webdriver 3.1.0 (3.2.0 available)
++ webkit_inspection_protocol 1.2.1
++ xml 6.6.1 (7.1.0 available)
++ yaml 3.1.3 (3.1.4 available)
++ yaml_edit 2.2.3 (2.2.4 available)
+Changed 101 dependencies!
+2 packages are discontinued.
+60 packages have newer versions incompatible with dependency constraints.
+Try `dart pub outdated` for more information.
+Downloading Material fonts...                                      190ms
+Downloading Gradle Wrapper...                                        9ms
+Downloading android-arm-profile/linux-x64 tools...                 182ms
+Downloading android-arm-release/linux-x64 tools...                 149ms
+Downloading android-arm64-profile/linux-x64 tools...               146ms
+Downloading android-arm64-release/linux-x64 tools...               139ms
+Downloading android-x64-profile/linux-x64 tools...                 156ms
+Downloading android-x64-release/linux-x64 tools...                 140ms
+Downloading android-x86 tools...                                    3.6s
+Downloading android-x64 tools...                                    3.7s
+Downloading android-arm tools...                                    3.6s
+Downloading android-arm-profile tools...                         1,404ms
+Downloading android-arm-release tools...                         1,294ms
+Downloading android-arm64 tools...                                  5.5s
+Downloading android-arm64-profile tools...                       1,467ms
+Downloading android-arm64-release tools...                       1,342ms
+Downloading android-x64-profile tools...                         1,408ms
+Downloading android-x64-release tools...                         1,377ms
+Downloading package sky_engine...                                  105ms
+Downloading package flutter_gpu...                                   8ms
+Downloading flutter_patched_sdk tools...                           127ms
+Downloading flutter_patched_sdk_product tools...                   135ms
+Downloading linux-x64 tools...                                     952ms
+Downloading linux-x64/font-subset tools...                          77ms
+yes: standard output: Broken pipe
+
+[1;34m==> Done[0m
+Flutter 3.41.9 • channel [user-branch] • unknown source
+Framework • revision 00b0c91f06 (6 months ago) • 2026-04-29 10:03:19 -0700
+Engine • hash 9161402dc0e134b3fb5adee5046b6e84b1a5e1c1 (revision 42d3d75a56) (5 months ago) • 2026-04-28 17:31:55.000Z
+Tools • Dart 3.11.5 • DevTools 2.54.2
+
+Run 'source /home/runner/.hexris-android-env' in new shells to put flutter and the SDK on PATH.
