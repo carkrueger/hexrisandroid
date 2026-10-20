@@ -1,0 +1,13 @@
+== API 31, Physical size: 1080x2400, Physical density: 420
+== install
+== cold start
+== screenshot 01-splash.png
+== screenshot 02-portrait.png
+== drag piece from (270,2022) to (540,1080)
+== screenshot 03-after-move.png
+== back out, kill, relaunch: game should be restored
+== screenshot 04-restored.png
+== rotate to landscape
+== screenshot 05-landscape.png
+== screenshot 07-back-to-portrait.png
+== done, status 0
