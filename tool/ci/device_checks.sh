@@ -150,6 +150,9 @@ log "natural orientation: ${W0}x${H0}"
   for p in ro.config.low_ram ro.config.avoid_gfx_accel ro.hardware.egl ro.kernel.qemu.gles; do
     echo "$p=$(adb shell getprop "$p" | tr -d '\r')"
   done
+  echo "--- view hierarchy (is the Flutter view laid out behind the bars?)"
+  adb shell dumpsys activity top | tr -d '\r' \
+    | grep -E "DecorView|FlutterView|FlutterSurfaceView|FlutterTextureView|navigationBarBackground|statusBarBackground|android:id/content" | head -20
   echo "--- window policy"
   adb shell dumpsys window | tr -d '\r' \
     | grep -iE "appearance|navbar|navigationbar|mNavBar|barmode|translucent|opaque" | head -30
