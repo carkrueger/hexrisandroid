@@ -66,8 +66,11 @@ class _HexGridWidgetState extends State<HexGridWidget>
                 final local = renderBox.globalToLocal(details.offset);
                 final adjusted = local + details.data.anchorOffset;
                 final anchor = _pixelToHexCoord(adjusted, hexSize, center);
-                if (anchor != null) {
-                  state.placePiece(details.data.trayIndex, anchor);
+                // A drop doesn't trigger onLeave, and placePiece only clears
+                // the preview when it succeeds.
+                if (anchor == null ||
+                    !state.placePiece(details.data.trayIndex, anchor)) {
+                  state.clearGhost();
                 }
               },
               builder: (context, candidateData, rejectedData) {
