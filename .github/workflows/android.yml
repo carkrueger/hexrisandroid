@@ -1,0 +1,215 @@
+name: Android
+
+# Builds the release APK the way F-Droid would (no keystore), checks it, and
+# runs the automated device checks on emulators. All logs, APK checks and
+# emulator screenshots are pushed to the `ci-results` branch under
+# <commit-sha>/, so they can be read without access to the Actions UI.
+
+on:
+  push:
+    branches: [main, android-port]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: android-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  FLUTTER_VERSION: 3.41.9
+
+defaults:
+  run:
+    # bash -eo pipefail, so `cmd | tee log` still fails the step when cmd fails.
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Toolchain (tool/setup_android_env.sh)
+        env:
+          SKIP_EMULATOR: "1"
+        run: |
+          mkdir -p results
+          tool/setup_android_env.sh 2>&1 | tee results/setup.log
+          source "$HOME/.hexris-android-env"
+          echo "$FLUTTER_HOME/bin" >> "$GITHUB_PATH"
+          echo "$ANDROID_HOME/cmdline-tools/latest/bin" >> "$GITHUB_PATH"
+          echo "$ANDROID_HOME/build-tools/36.0.0" >> "$GITHUB_PATH"
+          echo "$ANDROID_HOME/platform-tools" >> "$GITHUB_PATH"
+
+      - name: flutter pub get
+        run: |
+          flutter pub get 2>&1 | tee results/pub-get.log
+          cp pubspec.lock results/pubspec.lock
+          git diff --stat pubspec.lock | tee results/pubspec-lock-diff.txt
+
+      - name: flutter analyze
+        run: flutter analyze 2>&1 | tee results/analyze.log
+
+      - name: flutter test
+        run: flutter test 2>&1 | tee results/test.log
+
+      - name: flutter build apk --release (unsigned, no key.properties)
+        run: |
+          test ! -e android/key.properties
+          flutter build apk --release 2>&1 | tee results/build-apk.log
+          cp build/app/outputs/flutter-apk/app-release.apk results/
+
+      - name: Check APK
+        run: |
+          APK=build/app/outputs/flutter-apk/app-release.apk
+          {
+            echo "## aapt2 dump badging"
+            aapt2 dump badging "$APK" | head -8
+            echo
+            echo "## size"
+            ls -l "$APK"
+            echo
+            echo "## signature (expect: not signed)"
+            apksigner verify "$APK" 2>&1 || true
+            echo
+            echo "## dependency metadata blob (expect: none)"
+            unzip -l "$APK" | grep -iE 'META-INF/.*DEPENDENC' || echo none
+            echo
+            echo "## proprietary packages (expect: none)"
+            apkanalyzer dex packages "$APK" | awk '{print $NF}' \
+              | grep -E '^com\.google\.android\.(gms|play)' || echo none
+            echo
+            echo "## permissions"
+            aapt2 dump permissions "$APK"
+          } 2>&1 | tee results/apk-check.txt
+          aapt2 dump badging "$APK" | grep -q "package: name='com.hexris.hexris'"
+          aapt2 dump badging "$APK" | grep -q "sdkVersion:'31'"
+          aapt2 dump badging "$APK" | grep -q "targetSdkVersion:'36'"
+          ! unzip -l "$APK" | grep -qiE 'META-INF/.*DEPENDENC'
+          ! apkanalyzer dex packages "$APK" | awk '{print $NF}' \
+              | grep -qE '^com\.google\.android\.(gms|play)'
+          apkanalyzer dex packages "$APK" > results/dex-packages.txt
+
+      - name: Sign a test copy for the emulators
+        run: |
+          keytool -genkeypair -keystore ci.jks -storepass android -keypass android \
+            -alias ci -keyalg RSA -keysize 2048 -validity 1 -dname "CN=Hexris CI"
+          zipalign -p -f 4 build/app/outputs/flutter-apk/app-release.apk aligned.apk
+          apksigner sign --ks ci.jks --ks-pass pass:android --out app-release-ci-signed.apk aligned.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apk
+          path: |
+            build/app/outputs/flutter-apk/app-release.apk
+            app-release-ci-signed.apk
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: results-build
+          path: results/
+
+  emulator:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: phone-api31
+            api: 31
+            profile: pixel_6
+            form: phone
+          - name: phone-api36
+            api: 36
+            profile: pixel_8
+            form: phone
+          - name: tablet-api36
+            api: 36
+            profile: pixel_tablet
+            form: tablet
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: apk
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' \
+            | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api }}
+          target: google_apis
+          arch: x86_64
+          profile: ${{ matrix.profile }}
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: bash tool/ci/device_checks.sh app-release-ci-signed.apk results/device-${{ matrix.name }} ${{ matrix.form }}
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: results-device-${{ matrix.name }}
+          path: results/
+
+  publish-results:
+    needs: [build, emulator]
+    if: always() && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: results-*
+          path: downloaded
+          merge-multiple: true
+
+      - name: Push to the ci-results branch
+        env:
+          SHA: ${{ github.sha }}
+          REF: ${{ github.ref_name }}
+          BUILD: ${{ needs.build.result }}
+          EMULATOR: ${{ needs.emulator.result }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git init -q ci && cd ci
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          if git fetch -q --depth 1 origin ci-results; then
+            git checkout -q -B ci-results FETCH_HEAD
+          else
+            git checkout -q --orphan ci-results
+          fi
+          rm -rf "$SHA"
+          mkdir -p "$SHA"
+          cp -r ../downloaded/. "$SHA"/ 2>/dev/null || true
+          # Keep the branch small: no APKs (they are in the run's artifacts).
+          find "$SHA" -name '*.apk' -delete
+          cat > "$SHA/SUMMARY.md" <<EOF
+          # $REF @ $SHA
+
+          - build: $BUILD
+          - emulator: $EMULATOR
+          - run: $RUN_URL
+          EOF
+          sed -i 's/^          //' "$SHA/SUMMARY.md"
+          echo "$SHA $REF build=$BUILD emulator=$EMULATOR" > LATEST
+          git add -A
+          git commit -q -m "CI results for $REF @ ${SHA::7}"
+          git push -q origin HEAD:ci-results

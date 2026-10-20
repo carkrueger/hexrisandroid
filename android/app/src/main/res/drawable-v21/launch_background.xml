@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Window background while the Flutter engine starts. On Android 12+ the
+     system splash screen (windowSplashScreen* in styles.xml) is shown first. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/hexris_background" />
+</layer-list>

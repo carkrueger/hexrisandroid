@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- GameColors.background in lib/utils/colors.dart -->
+    <color name="hexris_background">#FF2D2D2D</color>
+    <color name="ic_launcher_background">#FF2D2D2D</color>
+</resources>

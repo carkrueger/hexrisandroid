@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/ic_launcher_background"/>
+    <!-- The foreground PNGs are already padded to the 66dp safe zone
+         (tool/generate_icon_sources.py), so no inset is applied here. -->
+    <foreground android:drawable="@drawable/ic_launcher_foreground"/>
+    <!-- Android 13+ themed icon. -->
+    <monochrome android:drawable="@drawable/ic_launcher_monochrome"/>
+</adaptive-icon>

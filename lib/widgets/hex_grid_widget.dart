@@ -5,8 +5,10 @@ import '../models/coordinates.dart';
 import '../models/piece.dart';
 import '../logic/hex_grid_logic.dart';
 import '../painters/hex_grid_painter.dart';
+import '../utils/board_metrics.dart';
 import '../utils/constants.dart';
 import '../utils/hex_math.dart';
+import '../utils/storage.dart';
 import 'dart:math' as math;
 
 class HexGridWidget extends StatefulWidget {
@@ -40,7 +42,7 @@ class _HexGridWidgetState extends State<HexGridWidget>
     return LayoutBuilder(
       builder: (context, constraints) {
         final maxSize = math.min(constraints.maxWidth, constraints.maxHeight);
-        final hexSize = maxSize / (math.sqrt(3) * 9 + 1);
+        final hexSize = boardCellSize(GameMode.hex, maxSize);
         final center = Offset(maxSize / 2, maxSize / 2);
 
         return Consumer<GameState>(

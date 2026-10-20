@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Hexris is always dark, so the light (values/) and dark (values-night/)
+         themes are identical. -->
+
+    <!-- Theme applied to the Android Window while the process is starting.
+         On Android 12+ (minSdk 31) the system splash screen uses the
+         windowSplashScreen* attributes: the launcher foreground centred on the
+         game background, matching the dark iOS launch screen. -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowBackground">@drawable/launch_background</item>
+        <item name="android:windowSplashScreenBackground">@color/hexris_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+    </style>
+    <!-- Theme applied to the Android Window as soon as the process has started.
+         This theme determines the color of the Android Window while your
+         Flutter UI initializes, as well as behind your Flutter UI while its
+         running. -->
+    <style name="NormalTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowBackground">@color/hexris_background</item>
+    </style>
+</resources>

@@ -1,0 +1,5 @@
+First Android release.
+
+* Hex and square boards, modern and Classic rules
+* Tablet landscape layout with a side panel
+* Adaptive and themed launcher icon

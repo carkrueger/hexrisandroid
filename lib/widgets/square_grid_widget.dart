@@ -4,7 +4,9 @@ import '../models/game_state.dart';
 import '../models/coordinates.dart';
 import '../models/piece.dart';
 import '../painters/square_grid_painter.dart';
+import '../utils/board_metrics.dart';
 import '../utils/constants.dart';
+import '../utils/storage.dart';
 
 class SquareGridWidget extends StatefulWidget {
   const SquareGridWidget({super.key});
@@ -40,7 +42,7 @@ class _SquareGridWidgetState extends State<SquareGridWidget>
         final maxSize = constraints.maxWidth < constraints.maxHeight
             ? constraints.maxWidth
             : constraints.maxHeight;
-        final cellSize = maxSize / gridDim;
+        final cellSize = boardCellSize(GameMode.square, maxSize);
         final totalSize = cellSize * gridDim;
 
         return Consumer<GameState>(

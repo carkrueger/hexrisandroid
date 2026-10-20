@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/game_state.dart';
+import '../utils/board_metrics.dart';
 import '../utils/colors.dart';
 import '../utils/constants.dart';
 import '../utils/storage.dart';
@@ -22,59 +23,15 @@ class GameScreen extends StatelessWidget {
           builder: (context, state, _) {
             return LayoutBuilder(
               builder: (context, constraints) {
-                // Compute grid cell size based on available space
-                // Reserve ~250 for header + tray + padding
-                final availableHeight = constraints.maxHeight - 250;
-                final availableWidth = constraints.maxWidth - 32;
-                final gridMax = math.min(availableWidth, availableHeight);
-                final cellSize = state.mode == GameMode.square
-                    ? gridMax / GameConstants.squareGridSize
-                    : gridMax / (math.sqrt(3) * 9 + 1);
-
+                // Pick the layout from the space we actually get, not from the
+                // device type, so split-screen and foldables work too.
+                final isWide = constraints.maxWidth >
+                    constraints.maxHeight * LayoutConstants.wideAspectRatio;
                 return Stack(
                   children: [
-                    Column(
-                      children: [
-                        const HeaderBar(),
-                        const SizedBox(height: 8),
-                        Expanded(
-                          child: Center(
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 16),
-                              child: state.mode == GameMode.square
-                                  ? const SquareGridWidget()
-                                  : const HexGridWidget(),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        PieceTray(gridCellSize: cellSize),
-                        const SizedBox(height: 16),
-                      ],
-                    ),
-                    // Undo button - bottom left
-                    if (state.canUndo)
-                      Positioned(
-                        left: 16,
-                        bottom: 24,
-                        child: GestureDetector(
-                          onTap: () => state.undo(),
-                          child: Container(
-                            width: 48,
-                            height: 48,
-                            decoration: BoxDecoration(
-                              color: GameColors.emptyCell,
-                              borderRadius: BorderRadius.circular(24),
-                            ),
-                            child: const Icon(
-                              Icons.undo,
-                              color: Colors.white70,
-                              size: 26,
-                            ),
-                          ),
-                        ),
-                      ),
+                    isWide
+                        ? _buildWideLayout(state, constraints)
+                        : _buildTallLayout(state, constraints),
                     if (state.isGameOver) _buildGameOverOverlay(context, state),
                   ],
                 );
@@ -82,6 +39,128 @@ class GameScreen extends StatelessWidget {
             );
           },
         ),
+      ),
+    );
+  }
+
+  /// Phones and portrait tablets: header, board, then a horizontal tray, with
+  /// the undo button in the bottom-left corner.
+  Widget _buildTallLayout(GameState state, BoxConstraints constraints) {
+    const pad = LayoutConstants.boardPadding;
+    final boardSide = _boardSide(
+      maxWidth: constraints.maxWidth - 2 * pad,
+      maxHeight: constraints.maxHeight -
+          (LayoutConstants.headerHeight +
+              8 +
+              8 +
+              LayoutConstants.trayHeight +
+              16),
+    );
+    final cellSize = boardCellSize(state.mode, boardSide);
+
+    return Stack(
+      children: [
+        Column(
+          children: [
+            const HeaderBar(),
+            const SizedBox(height: 8),
+            Expanded(child: Center(child: _board(state, boardSide))),
+            const SizedBox(height: 8),
+            PieceTray(gridCellSize: cellSize),
+            const SizedBox(height: 16),
+          ],
+        ),
+        // Undo button - bottom left
+        if (state.canUndo)
+          Positioned(left: 16, bottom: 24, child: _undoButton(state)),
+      ],
+    );
+  }
+
+  /// Landscape tablets and wide windows: header on top, then the board on the
+  /// left and a side panel with the vertical tray and the undo button.
+  Widget _buildWideLayout(GameState state, BoxConstraints constraints) {
+    const pad = LayoutConstants.boardPadding;
+    final panelWidth = (constraints.maxWidth * 0.22).clamp(
+      LayoutConstants.sidePanelMinWidth,
+      LayoutConstants.sidePanelMaxWidth,
+    );
+    // Row: pad | board | pad | panel | pad
+    final boardSide = _boardSide(
+      maxWidth: constraints.maxWidth - 3 * pad - panelWidth,
+      maxHeight:
+          constraints.maxHeight - (LayoutConstants.headerHeight + 8 + pad),
+    );
+    final cellSize = boardCellSize(state.mode, boardSide);
+
+    return Column(
+      children: [
+        const HeaderBar(),
+        const SizedBox(height: 8),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(pad, 0, pad, pad),
+            child: Row(
+              children: [
+                Expanded(child: Center(child: _board(state, boardSide))),
+                const SizedBox(width: pad),
+                SizedBox(
+                  width: panelWidth,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: PieceTray(
+                          gridCellSize: cellSize,
+                          direction: Axis.vertical,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      // Keep the slot when hidden so the tray doesn't jump.
+                      SizedBox(
+                        height: LayoutConstants.undoButtonSize,
+                        child: state.canUndo ? _undoButton(state) : null,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  /// Side of the square box the board is drawn in. The grid widgets size their
+  /// cells from this same box, so the tray's [boardCellSize] matches them.
+  static double _boardSide({
+    required double maxWidth,
+    required double maxHeight,
+  }) {
+    return math.max(0.0, math.min(maxWidth, maxHeight));
+  }
+
+  Widget _board(GameState state, double side) {
+    return SizedBox.square(
+      dimension: side,
+      child: state.mode == GameMode.square
+          ? const SquareGridWidget()
+          : const HexGridWidget(),
+    );
+  }
+
+  Widget _undoButton(GameState state) {
+    return GestureDetector(
+      onTap: () => state.undo(),
+      child: Container(
+        width: LayoutConstants.undoButtonSize,
+        height: LayoutConstants.undoButtonSize,
+        decoration: BoxDecoration(
+          color: GameColors.emptyCell,
+          borderRadius:
+              BorderRadius.circular(LayoutConstants.undoButtonSize / 2),
+        ),
+        child: const Icon(Icons.undo, color: Colors.white70, size: 26),
       ),
     );
   }

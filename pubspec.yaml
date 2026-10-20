@@ -46,6 +46,11 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
 
+  # Build-time only (MIT): regenerates the Android launcher icons from
+  # assets/icon/. The committed icons come from tool/generate_icon_sources.py,
+  # which also writes those source images; see the config at the end.
+  flutter_launcher_icons: ^0.14.4
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -85,3 +90,17 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+# Android launcher icons. `dart run flutter_launcher_icons` regenerates the
+# legacy mipmaps, the adaptive icon and the Android 13 monochrome icon. The
+# foreground and monochrome sources are already padded to the 66dp safe zone,
+# so no extra inset is added. iOS keeps its own hand-made icon set.
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: false
+  image_path: "assets/icon/icon.png"
+  min_sdk_android: 31
+  adaptive_icon_background: "#2D2D2D"
+  adaptive_icon_foreground: "assets/icon/foreground.png"
+  adaptive_icon_foreground_inset: 0
+  adaptive_icon_monochrome: "assets/icon/monochrome.png"

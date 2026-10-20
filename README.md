@@ -1,6 +1,6 @@
 # Hexris
 
-A block-puzzle game for iPad, built with Flutter/Dart. Inspired by a now-deprecated iOS game that is no longer available on the App Store — this project recreates its gameplay and visual style from scratch.
+A block-puzzle game for iPhone, iPad and Android, built with Flutter/Dart. Inspired by a now-deprecated iOS game that is no longer available on the App Store — this project recreates its gameplay and visual style from scratch.
 
 The game features two board modes — a classic 10x10 square grid and a
 61-cell hexagonal grid — where players drag and drop pieces to fill and clear
@@ -40,4 +40,17 @@ flutter run          # run on connected device
 flutter run -d macos # run on macOS desktop
 ```
 
-Requires Flutter SDK 3.x+.
+Requires Flutter SDK 3.38+ (Dart 3.11).
+
+### Android
+
+Android 12 (API 31) and newer, phones and tablets. Tablets rotate and use a
+landscape layout with the tray in a side panel.
+
+```bash
+tool/setup_android_env.sh   # optional: installs JDK, Flutter 3.41.9, Android SDK on Linux
+flutter build apk --release # unsigned unless android/key.properties exists
+```
+
+See [docs/android-release.md](docs/android-release.md) for the pinned
+toolchain, signing, versioning and F-Droid notes.

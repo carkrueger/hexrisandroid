@@ -4,15 +4,37 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'models/game_state.dart';
 import 'utils/colors.dart';
+import 'utils/feedback_service.dart';
+import 'utils/orientation_policy.dart';
 import 'utils/storage.dart';
 import 'widgets/game_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  // Phones are locked to portrait; tablets and unfolded foldables may rotate.
+  // Re-evaluated in didChangeMetrics when the screen size changes.
+  await OrientationPolicy.apply();
+
+  // Draw behind the status and navigation bars (enforced on Android 15+ for
+  // SDK 35+ anyway). GameScreen keeps its content inside a SafeArea.
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.transparent,
+      systemNavigationBarDividerColor: Colors.transparent,
+      systemNavigationBarContrastEnforced: false,
+      // Light icons on the dark game background (Android).
+      statusBarIconBrightness: Brightness.light,
+      systemNavigationBarIconBrightness: Brightness.light,
+      // iOS: describes the background, so dark means light status bar text.
+      statusBarBrightness: Brightness.dark,
+    ),
+  );
 
   await Storage.init();
+  await FeedbackService.init();
 
   // Restore an in-progress game if one was saved.
   Map<String, dynamic>? savedState;
@@ -79,6 +101,13 @@ class _HexrisAppState extends State<HexrisApp> with WidgetsBindingObserver {
       rules: widget.initialRules,
     );
     WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeMetrics() {
+    // The screen size changed: rotation, split-screen resize, or a foldable
+    // being folded/unfolded. Phones stay portrait, larger screens may rotate.
+    OrientationPolicy.apply();
   }
 
   @override

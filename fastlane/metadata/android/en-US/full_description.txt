@@ -1,0 +1,17 @@
+<p>A block puzzle game with a twist: play on a hexagonal grid!</p>
+
+<p>Drag pieces from the tray onto the board to fill and clear lines. Plan your placements to clear several lines at once for bonus points. The game ends when none of the remaining pieces fits on the board.</p>
+
+<p><b>Features</b></p>
+<ul>
+<li>Two board modes: a 61-cell hexagonal grid and a classic 10×10 square grid</li>
+<li>Line clearing across rows and columns, or along all three hex axes</li>
+<li>Two rulesets: modern Hexris (default) and Classic, with the original piece catalog, odds, tray refill and scoring</li>
+<li>Undo your last moves</li>
+<li>High score tracking for each mode and ruleset</li>
+<li>Your game is saved automatically and restored when you come back</li>
+<li>Sound effects and haptic feedback, both optional</li>
+<li>Phone and tablet layouts, including landscape and split-screen on tablets</li>
+</ul>
+
+<p>No ads, no tracking, no network access. The app does not collect any data.</p>

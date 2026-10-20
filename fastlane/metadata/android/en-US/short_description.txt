@@ -1,0 +1,1 @@
+Block puzzle on a hexagonal grid: drag pieces, clear lines across three axes.
