@@ -117,7 +117,8 @@ launch_from_launcher() {
   sleep 2
   local W H
   read -r W H < <(current_size)
-  adb shell input swipe $((W / 2)) $((H * 85 / 100)) $((W / 2)) $((H * 20 / 100)) 300
+  # Start above the dock; a swipe up from the dock may not open the drawer.
+  adb shell input swipe $((W / 2)) $((H * 60 / 100)) $((W / 2)) $((H * 10 / 100)) 300
   sleep 2
   shot 00-app-drawer
   if ! TAP_SETTLE=0 tap_text "Hexris"; then
