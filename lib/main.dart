@@ -19,19 +19,7 @@ void main() async {
   // Draw behind the status and navigation bars (enforced on Android 15+ for
   // SDK 35+ anyway). GameScreen keeps its content inside a SafeArea.
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.transparent,
-      systemNavigationBarDividerColor: Colors.transparent,
-      systemNavigationBarContrastEnforced: false,
-      // Light icons on the dark game background (Android).
-      statusBarIconBrightness: Brightness.light,
-      systemNavigationBarIconBrightness: Brightness.light,
-      // iOS: describes the background, so dark means light status bar text.
-      statusBarBrightness: Brightness.dark,
-    ),
-  );
+  SystemChrome.setSystemUIOverlayStyle(systemUiStyle);
 
   await Storage.init();
   await FeedbackService.init();
@@ -69,6 +57,25 @@ void main() async {
     ),
   );
 }
+
+/// Transparent system bars with light icons over the dark game background.
+///
+/// Set at startup and, through an [AnnotatedRegion] around every route, after
+/// each frame: [MaterialApp] applies [SystemUiOverlayStyle.light] on every
+/// build for a dark theme, whose opaque black navigation bar would otherwise
+/// show below the game on Android 12-14 (15+ ignores the bar colour).
+const systemUiStyle = SystemUiOverlayStyle(
+  statusBarColor: Colors.transparent,
+  systemNavigationBarColor: Colors.transparent,
+  systemNavigationBarDividerColor: Colors.transparent,
+  systemStatusBarContrastEnforced: false,
+  systemNavigationBarContrastEnforced: false,
+  // Light icons on the dark game background (Android).
+  statusBarIconBrightness: Brightness.light,
+  systemNavigationBarIconBrightness: Brightness.light,
+  // iOS: describes the background, so dark means light status bar text.
+  statusBarBrightness: Brightness.dark,
+);
 
 class HexrisApp extends StatefulWidget {
   final int initialHighScore;
@@ -137,6 +144,10 @@ class _HexrisAppState extends State<HexrisApp> with WidgetsBindingObserver {
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: GameColors.background,
+        ),
+        builder: (context, child) => AnnotatedRegion<SystemUiOverlayStyle>(
+          value: systemUiStyle,
+          child: child!,
         ),
         home: const GameScreen(),
       ),
