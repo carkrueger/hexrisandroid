@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../models/game_state.dart';
 import '../utils/colors.dart';
 import '../utils/storage.dart';
+import 'help_dialog.dart';
 
 class HeaderBar extends StatelessWidget {
   const HeaderBar({super.key});
@@ -17,26 +18,33 @@ class HeaderBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // Mode toggle
-              GestureDetector(
-                onTap: () {
-                  final newMode = state.mode == GameMode.square
-                      ? GameMode.hex
-                      : GameMode.square;
-                  state.switchMode(newMode);
-                },
-                child: Container(
-                  width: 48,
-                  height: 48,
-                  decoration: BoxDecoration(
-                    color: GameColors.orange,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Icon(
-                    state.mode == GameMode.square
-                        ? Icons.hexagon
-                        : Icons.square_rounded,
-                    color: Colors.white,
-                    size: 28,
+              Semantics(
+                button: true,
+                label: state.mode == GameMode.square
+                    ? 'Switch to hex board'
+                    : 'Switch to square board',
+                excludeSemantics: true,
+                child: GestureDetector(
+                  onTap: () {
+                    final newMode = state.mode == GameMode.square
+                        ? GameMode.hex
+                        : GameMode.square;
+                    state.switchMode(newMode);
+                  },
+                  child: Container(
+                    width: 48,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: GameColors.orange,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Icon(
+                      state.mode == GameMode.square
+                          ? Icons.hexagon
+                          : Icons.square_rounded,
+                      color: Colors.white,
+                      size: 28,
+                    ),
                   ),
                 ),
               ),
@@ -80,19 +88,24 @@ class HeaderBar extends StatelessWidget {
                 ],
               ),
               // Settings
-              GestureDetector(
-                onTap: () => _showSettings(context, state),
-                child: Container(
-                  width: 48,
-                  height: 48,
-                  decoration: BoxDecoration(
-                    color: GameColors.yellow,
-                    borderRadius: BorderRadius.circular(24),
-                  ),
-                  child: const Icon(
-                    Icons.settings,
-                    color: Colors.white,
-                    size: 28,
+              Semantics(
+                button: true,
+                label: 'Settings',
+                excludeSemantics: true,
+                child: GestureDetector(
+                  onTap: () => _showSettings(context, state),
+                  child: Container(
+                    width: 48,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: GameColors.yellow,
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                    child: const Icon(
+                      Icons.settings,
+                      color: Colors.white,
+                      size: 28,
+                    ),
                   ),
                 ),
               ),
@@ -100,43 +113,6 @@ class HeaderBar extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-
-  void _showHowToPlay(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: GameColors.emptyCell,
-        title: const Text('How to Play', style: TextStyle(color: Colors.white)),
-        content: const Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Drag pieces from the tray onto the board.\n\n'
-              'Fill an entire row, column, or diagonal line to clear it and earn bonus points.\n\n'
-              'Clearing multiple lines at once gives a combo bonus.\n\n'
-              'The game ends when no remaining piece can fit on the board.\n\n'
-              'Tap the icon in the top-left to switch between hex and square modes.',
-              style: TextStyle(
-                color: Colors.white70,
-                fontSize: 16,
-                height: 1.5,
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text(
-              'Got it',
-              style: TextStyle(color: Colors.greenAccent),
-            ),
-          ),
-        ],
-      ),
     );
   }
 
@@ -390,7 +366,7 @@ class HeaderBar extends StatelessWidget {
                   ),
                   onTap: () {
                     Navigator.pop(context);
-                    _showHowToPlay(context);
+                    HelpDialog.show(context, state.rules);
                   },
                 ),
               ],

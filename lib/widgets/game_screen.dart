@@ -25,7 +25,8 @@ class GameScreen extends StatelessWidget {
               builder: (context, constraints) {
                 // Pick the layout from the space we actually get, not from the
                 // device type, so split-screen and foldables work too.
-                final isWide = constraints.maxWidth >
+                final isWide =
+                    constraints.maxWidth >
                     constraints.maxHeight * LayoutConstants.wideAspectRatio;
                 return Stack(
                   children: [
@@ -49,7 +50,8 @@ class GameScreen extends StatelessWidget {
     const pad = LayoutConstants.boardPadding;
     final boardSide = _boardSide(
       maxWidth: constraints.maxWidth - 2 * pad,
-      maxHeight: constraints.maxHeight -
+      maxHeight:
+          constraints.maxHeight -
           (LayoutConstants.headerHeight +
               8 +
               8 +
@@ -150,24 +152,40 @@ class GameScreen extends StatelessWidget {
   }
 
   Widget _undoButton(GameState state) {
-    return GestureDetector(
-      onTap: () => state.undo(),
-      child: Container(
-        width: LayoutConstants.undoButtonSize,
-        height: LayoutConstants.undoButtonSize,
-        decoration: BoxDecoration(
-          color: GameColors.emptyCell,
-          borderRadius:
-              BorderRadius.circular(LayoutConstants.undoButtonSize / 2),
+    return Semantics(
+      button: true,
+      label: 'Undo',
+      excludeSemantics: true,
+      child: GestureDetector(
+        onTap: () => state.undo(),
+        child: Container(
+          width: LayoutConstants.undoButtonSize,
+          height: LayoutConstants.undoButtonSize,
+          decoration: BoxDecoration(
+            color: GameColors.emptyCell,
+            borderRadius: BorderRadius.circular(
+              LayoutConstants.undoButtonSize / 2,
+            ),
+          ),
+          child: const Icon(Icons.undo, color: Colors.white70, size: 26),
         ),
-        child: const Icon(Icons.undo, color: Colors.white70, size: 26),
       ),
     );
   }
 
   static const _months = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
   ];
 
   String _formatDate(DateTime date) {
@@ -199,35 +217,28 @@ class GameScreen extends StatelessWidget {
               const SizedBox(height: 16),
               Text(
                 'Score: ${state.score}',
-                style: const TextStyle(
-                  color: Colors.greenAccent,
-                  fontSize: 24,
-                ),
+                style: const TextStyle(color: Colors.greenAccent, fontSize: 24),
               ),
               const SizedBox(height: 8),
               Text(
                 'Best: ${state.highScore}',
-                style: const TextStyle(
-                  color: Colors.amber,
-                  fontSize: 20,
-                ),
+                style: const TextStyle(color: Colors.amber, fontSize: 20),
               ),
               if (state.highScoreDate != null) ...[
                 const SizedBox(height: 4),
                 Text(
                   'Set ${_formatDate(state.highScoreDate!)}',
-                  style: const TextStyle(
-                    color: Colors.white54,
-                    fontSize: 14,
-                  ),
+                  style: const TextStyle(color: Colors.white54, fontSize: 14),
                 ),
               ],
               const SizedBox(height: 24),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: GameColors.green,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 32,
+                    vertical: 16,
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
