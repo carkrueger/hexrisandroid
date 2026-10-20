@@ -145,7 +145,8 @@ jobs:
               -alias test -keyalg RSA -keysize 2048 -validity 10000 \
               -dname "CN=Hexris test build"
             zipalign -p -f 4 "$APK" aligned.apk
-            apksigner sign --ks test.jks --ks-pass pass:android \
+            # No v4 signature: it only adds a .idsig file for adb incremental installs.
+            apksigner sign --ks test.jks --ks-pass pass:android --v4-signing-enabled false \
               --out "dist/hexris-$VERSION-test-signed.apk" aligned.apk
             apksigner verify "dist/hexris-$VERSION-test-signed.apk"
           fi
@@ -189,6 +190,10 @@ jobs:
             target=(--target "$GITHUB_SHA")
           fi
           if gh release view "$TAG" >/dev/null 2>&1; then
+            # Drop assets this build no longer produces, then replace the rest.
+            gh release view "$TAG" --json assets -q '.assets[].name' | while read -r asset; do
+              [ -e "dist/$asset" ] || gh release delete-asset "$TAG" "$asset" --yes
+            done
             gh release upload "$TAG" dist/* --clobber
             if [ "$GITHUB_REF_TYPE" != tag ]; then
               gh release edit "$TAG" --target "$GITHUB_SHA" --notes-file notes.md
