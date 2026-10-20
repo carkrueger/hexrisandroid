@@ -1,0 +1,2 @@
+          mOrientation=SCREEN_ORIENTATION_UNSPECIFIED
+          mOrientation=SCREEN_ORIENTATION_NOSENSOR
