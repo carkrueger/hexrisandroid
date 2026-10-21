@@ -1,0 +1,17 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=Hexris CI
+Signer #1 certificate SHA-256 digest: 4247802310bda0ac93838face30ac3ee5fbecc3e51ca8d99798095cf2e129484
+Signer #1 certificate SHA-1 digest: 70041fd49b9b8cda0e2913123e9ddbb51e8fa59c
+Signer #1 certificate MD5 digest: a7fb1d0d4bf228a263379d2a0be29eeb
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 2048
+Signer #1 public key SHA-256 digest: 1d094538c8db218188e3bc2803269a27c518f574f73312733842e964b9c1aedc
+Signer #1 public key SHA-1 digest: e7c2df19cd946da4e91952e9f5bf5a2d85205620
+Signer #1 public key MD5 digest: 706484b2d964f93f6b199cd3ecf83a1b
