@@ -111,6 +111,24 @@ jobs:
             build/app/outputs/flutter-apk/app-release.apk
             app-release-ci-signed.apk
 
+      # The release workflow signs through android/key.properties; check that
+      # path with a throwaway key so a release doesn't fail on it first.
+      - name: Release signing via key.properties (test key)
+        run: |
+          keytool -genkeypair -keystore android/app/release.jks -storetype PKCS12 \
+            -alias hexris -keyalg RSA -keysize 2048 -validity 1 -dname "CN=Hexris CI" \
+            -storepass ci-password -keypass ci-password
+          printf 'storeFile=release.jks\nstorePassword=ci-password\nkeyAlias=hexris\nkeyPassword=ci-password\n' \
+            > android/key.properties
+          flutter build apk --release 2>&1 | tee results/build-apk-signed.log
+          apksigner verify --verbose --print-certs build/app/outputs/flutter-apk/app-release.apk \
+            | tee results/apk-signing.txt
+          want=$(keytool -exportcert -keystore android/app/release.jks -storepass ci-password \
+              -alias hexris | openssl dgst -sha256 -r | cut -d' ' -f1)
+          grep -q "Verified using v2 scheme (APK Signature Scheme v2): true" results/apk-signing.txt
+          grep -q "^Signer #1 certificate SHA-256 digest: $want$" results/apk-signing.txt
+          rm android/key.properties android/app/release.jks
+
       - uses: actions/upload-artifact@v7
         if: always()
         with:

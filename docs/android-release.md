@@ -71,16 +71,15 @@ unzip -l build/app/outputs/flutter-apk/app-release.apk | grep -i dependencies \
 `.github/workflows/android.yml` runs all of the above on every push, plus
 emulator checks on an API 31 phone, an API 36 phone and an API 36 tablet.
 
-## Signing your own builds (optional)
+## Signing local builds (optional)
 
-Only needed to distribute APKs yourself (GitHub releases, Google Play).
+GitHub releases are signed by the release workflow (see "Releases"). To build
+a release-signed APK locally, for example to test an update over an
+installed release, use the same release key:
 
-1. Create a keystore once and keep it outside the repo:
-
-   ```bash
-   keytool -genkeypair -v -keystore ~/hexris-release.jks -alias hexris \
-     -keyalg RSA -keysize 4096 -validity 10000
-   ```
+1. Create the key once with `tool/create_release_keystore.sh` (see "Release
+   signing key"), or use the existing `hexris-release.jks`. Keep it outside
+   the repo.
 
 2. Create `android/key.properties` (gitignored, as are `*.jks` and
    `*.keystore`):
@@ -107,42 +106,67 @@ it, so back it up.
 - Add a changelog for each versionCode:
   `fastlane/metadata/android/en-US/changelogs/<versionCode>.txt` (max 500
   characters).
-- Tag each release `vX.Y.Z` (matching the `x.y.z` in `pubspec.yaml`). F-Droid
-  uses `UpdateCheckMode: Tags` to find new versions.
+- Each release is tagged `vX.Y.Z` (matching the `x.y.z` in `pubspec.yaml`);
+  the release workflow creates the tag when it publishes. F-Droid uses
+  `UpdateCheckMode: Tags` to find new versions.
 
 ## Releases
 
-`.github/workflows/release.yml` builds the release APK and attaches it to a
-**draft** GitHub release for the version in `pubspec.yaml`:
+Releases are published by `.github/workflows/release.yml`. On every push to
+`main` it reads the version from `pubspec.yaml`; if there is no GitHub
+release for `vX.Y.Z` yet, it checks that the changelog for the versionCode
+exists, runs `flutter analyze` and `flutter test`, builds the release APK,
+signs it with the release key, verifies it (package, SDK levels, no Google
+dependencies, signed with the release key's certificate) and publishes a
+release with `hexris-X.Y.Z.apk` and `SHA256SUMS`, which creates the
+`vX.Y.Z` tag. Once the release exists, pushes to `main` build nothing.
 
-- On every push to `main`, as long as that version has not been published
-  yet. The draft (tag `vX.Y.Z`, pointing at the latest `main` commit) is
-  updated each time, so it always holds the newest build.
-- On a pushed `vX.Y.Z` tag, which must match `pubspec.yaml`.
+To ship a new version:
 
-Each run checks that the changelog for the versionCode exists, runs
-`flutter analyze` and `flutter test`, builds the APK and checks it like the CI
-workflow does. To release, review the draft under *Releases* on GitHub and
-publish it; publishing creates the tag. After that, pushes to `main` build
-nothing until the version in `pubspec.yaml` is bumped for the next release.
+1. Bump `version:` in `pubspec.yaml`, e.g. `1.2.0+2` to `1.2.1+3` (the build
+   number must always increase).
+2. Add `fastlane/metadata/android/en-US/changelogs/<versionCode>.txt`; it
+   becomes the release notes.
+3. Merge to `main`. The release appears under *Releases* about 15 minutes
+   later; the latest one is always at
+   `https://github.com/carkrueger/hexrisandroid/releases/latest`.
 
-Signing in the release workflow:
+Pushing a `vX.Y.Z` tag that matches `pubspec.yaml`, or running the workflow
+by hand (*Actions > Release > Run workflow*), also publishes.
 
-- With these repository secrets set, the APK is signed with your release key
-  (`hexris-X.Y.Z.apk`):
+### Release signing key
 
-  | Secret | Value |
-  | --- | --- |
-  | `HEXRIS_KEYSTORE_BASE64` | `base64 -w0 hexris-release.jks` |
-  | `HEXRIS_KEYSTORE_PASSWORD` | the keystore password |
-  | `HEXRIS_KEY_ALIAS` | e.g. `hexris` |
-  | `HEXRIS_KEY_PASSWORD` | the key password |
+Every release is signed with the same key. Android only installs an update
+signed with the key of the installed app, so this key must never change or
+get lost. The workflow refuses to publish without it.
 
-- Without them, the release gets the unsigned APK
-  (`hexris-X.Y.Z-unsigned.apk`, as F-Droid builds it) and a copy signed with
-  a throwaway key (`hexris-X.Y.Z-test-signed.apk`). The test-signed APK
-  installs, but no later release can update it; it must be uninstalled first,
-  which deletes the saved game and high scores.
+Create it once, on your own machine (needs a JDK for `keytool`, `openssl`,
+and the GitHub CLI logged in to this repository):
+
+```bash
+tool/create_release_keystore.sh            # writes ~/hexris-release.jks
+```
+
+The script creates a 4096-bit RSA key (alias `hexris`, valid for 10,000
+days), prints its certificate fingerprint, and stores it as these repository
+secrets (*Settings > Secrets and variables > Actions*):
+
+| Secret | Value |
+| --- | --- |
+| `HEXRIS_KEYSTORE_BASE64` | `openssl base64 -A -in hexris-release.jks` |
+| `HEXRIS_KEYSTORE_PASSWORD` | the keystore password |
+| `HEXRIS_KEY_ALIAS` | `hexris` |
+| `HEXRIS_KEY_PASSWORD` | the key password (same as the keystore's for PKCS12) |
+
+Back up `hexris-release.jks` and its password outside the repository, e.g. in
+a password manager. To reuse an existing keystore, set the four secrets by
+hand.
+
+Each release's notes list the signing certificate's SHA-256, so downloads can
+be checked with `apksigner verify --print-certs hexris-X.Y.Z.apk`. The
+`Android` CI workflow builds once more with a throwaway key through the same
+`android/key.properties` path, so a broken signing setup shows up before a
+release.
 
 ## Store metadata
 
