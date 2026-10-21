@@ -20,6 +20,7 @@
 == screenshot 04b-help-scrolled.png
 == tap 'Got it' at 1696 1392
 == request rotation by 90 degrees
+== rotation 1 not applied yet, retrying with wm user-rotation
 == screenshot 05-rotated.png
 == size after rotation request: 1600x2560
 == tall layout 1600x2560: drag (400,2272) -> (800,1152)

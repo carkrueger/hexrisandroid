@@ -20,7 +20,7 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-Updating files:  96% (14899/15361)Updating files:  97% (14901/15361)Updating files:  98% (15054/15361)Updating files:  99% (15208/15361)Updating files: 100% (15361/15361)Updating files: 100% (15361/15361), done.
+Updating files:  96% (14784/15361)Updating files:  97% (14901/15361)Updating files:  98% (15054/15361)Updating files:  99% (15208/15361)Updating files: 100% (15361/15361)Updating files: 100% (15361/15361), done.
 
 [1;34m==> Android cmdline-tools already installed[0m
 
@@ -143,30 +143,30 @@ Changed 101 dependencies!
 2 packages are discontinued.
 61 packages have newer versions incompatible with dependency constraints.
 Try `dart pub outdated` for more information.
-Downloading Material fonts...                                      218ms
+Downloading Material fonts...                                      209ms
 Downloading Gradle Wrapper...                                        8ms
-Downloading android-arm-profile/linux-x64 tools...                 211ms
-Downloading android-arm-release/linux-x64 tools...                 201ms
-Downloading android-arm64-profile/linux-x64 tools...               197ms
-Downloading android-arm64-release/linux-x64 tools...               188ms
-Downloading android-x64-profile/linux-x64 tools...                 250ms
-Downloading android-x64-release/linux-x64 tools...                 198ms
-Downloading android-x86 tools...                                    3.3s
-Downloading android-x64 tools...                                    3.3s
-Downloading android-arm tools...                                    3.6s
-Downloading android-arm-profile tools...                         1,344ms
-Downloading android-arm-release tools...                         1,218ms
-Downloading android-arm64 tools...                                  5.1s
-Downloading android-arm64-profile tools...                       1,291ms
-Downloading android-arm64-release tools...                       1,159ms
-Downloading android-x64-profile tools...                         1,378ms
-Downloading android-x64-release tools...                         1,198ms
-Downloading package sky_engine...                                  100ms
-Downloading package flutter_gpu...                                  36ms
-Downloading flutter_patched_sdk tools...                           169ms
-Downloading flutter_patched_sdk_product tools...                   163ms
-Downloading linux-x64 tools...                                     901ms
-Downloading linux-x64/font-subset tools...                         128ms
+Downloading android-arm-profile/linux-x64 tools...                 213ms
+Downloading android-arm-release/linux-x64 tools...                 188ms
+Downloading android-arm64-profile/linux-x64 tools...               236ms
+Downloading android-arm64-release/linux-x64 tools...               194ms
+Downloading android-x64-profile/linux-x64 tools...                 211ms
+Downloading android-x64-release/linux-x64 tools...                 151ms
+Downloading android-x86 tools...                                    3.4s
+Downloading android-x64 tools...                                    3.4s
+Downloading android-arm tools...                                    3.3s
+Downloading android-arm-profile tools...                         1,313ms
+Downloading android-arm-release tools...                         1,251ms
+Downloading android-arm64 tools...                                  5.0s
+Downloading android-arm64-profile tools...                       1,265ms
+Downloading android-arm64-release tools...                       1,227ms
+Downloading android-x64-profile tools...                         1,310ms
+Downloading android-x64-release tools...                         1,211ms
+Downloading package sky_engine...                                   66ms
+Downloading package flutter_gpu...                                   7ms
+Downloading flutter_patched_sdk tools...                           136ms
+Downloading flutter_patched_sdk_product tools...                   136ms
+Downloading linux-x64 tools...                                     893ms
+Downloading linux-x64/font-subset tools...                          80ms
 yes: standard output: Broken pipe
 
 [1;34m==> Done[0m

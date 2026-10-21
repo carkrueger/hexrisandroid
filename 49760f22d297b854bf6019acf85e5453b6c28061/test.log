@@ -60,8 +60,8 @@ Try `flutter pub outdated` for more information.
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: hex mode phone portrait uses the tall layout
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: hex mode tablet portrait uses the tall layout
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: hex mode tablet landscape uses the side panel
-✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: hex mode short wide window (split-screen) uses the side panel
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/system_ui_test.dart: keeps the system bars transparent after MaterialApp builds
+✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: hex mode short wide window (split-screen) uses the side panel
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: square mode phone portrait uses the tall layout
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: square mode tablet portrait uses the tall layout
 ✅ /home/runner/work/hexrisandroid/hexrisandroid/test/layout_test.dart: square mode tablet landscape uses the side panel

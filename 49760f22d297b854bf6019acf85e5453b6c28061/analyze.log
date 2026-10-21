@@ -39,4 +39,4 @@ Got dependencies!
 35 packages have newer versions incompatible with dependency constraints.
 Try `flutter pub outdated` for more information.
 Analyzing hexrisandroid...                                      
-No issues found! (ran in 13.3s)
+No issues found! (ran in 12.6s)
